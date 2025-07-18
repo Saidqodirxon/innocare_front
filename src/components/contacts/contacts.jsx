@@ -32,7 +32,7 @@ const Contacts = () => {
   const handlePhoneChange = (value) => {
     setFormData((prev) => ({ ...prev, phone: value }));
   };
-    
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -69,7 +69,7 @@ const Contacts = () => {
               onChange={handlePhoneChange}
               inputClass="!w-full !h-10 !pl-14 !pr-4 !border !border-[#71914B] !rounded-full"
               containerClass="!w-full flex-1"
-              buttonClass="!bg-white !border-r !border-[#71914B] !rounded-l"
+              buttonClass="!bg-white !border-r !border-[#71914B] !rounded-l h-10"
               specialLabel=""
               inputProps={{ required: true }}
             />
@@ -105,26 +105,30 @@ const Contacts = () => {
       </div>
 
       {/* Info Boxes */}
-      <div className="flex flex-wrap gap-6 text-sm text-gray-800">
-        <div className="flex flex-1 min-w-[220px] border rounded-xl p-4 bg-gray-50 items-start gap-3">
-          <MapPin className="text-[#71914B] mt-1" />
-          <div>
-            <p className="font-semibold mb-1">Адрес</p>
-            <p>Шайхонтохурский район, улица Самарканд Дарвоза, 3/48</p>
-          </div>
+      <div className="flex flex-wrap gap-4 text-sm text-gray-700">
+        <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
+          <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+            <MapPin className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
+            Адрес
+          </p>
+          <p className="text-[13px] text-[#71914B] font-semibold">
+            Шайхонтохурский район, улица Самарканд Дарвоза, 3/48
+          </p>
         </div>
 
-        <div className="flex flex-1 min-w-[220px] border rounded-xl p-4 bg-gray-50 items-start gap-3">
-          <Mail className="text-[#71914B] mt-1" />
-          <div>
-            <p className="font-semibold mb-1">Почта</p>
-            <p className="text-[#71914B]">Supersite.uz@gmail.com</p>
-          </div>
+        <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
+          <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+            <Mail className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
+            Почта
+          </p>
+          <p className="text-[13px] text-[#71914B] font-semibold">
+            Supersite.uz@gmail.com
+          </p>
         </div>
 
-        <div className="flex flex-1 min-w-[220px] flex-col border rounded-xl p-4 bg-gray-50">
-          <p className="font-semibold mb-2 flex items-center gap-2">
-            <Globe className="text-[#71914B]" />
+        <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-3">
+          <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
+            <Globe className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             Соц. сети
           </p>
           <div className="flex gap-3 text-[#71914B] text-xl">
@@ -135,12 +139,14 @@ const Contacts = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 min-w-[220px] border rounded-xl p-4 bg-gray-50 items-start gap-3">
-          <Phone className="text-[#71914B] mt-1" />
-          <div>
-            <p className="font-semibold mb-1">Телефон</p>
-            <p className="text-[#71914B]">+998 (97) 032-23-32</p>
-          </div>
+        <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
+          <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
+            <Phone className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
+            Телефон
+          </p>
+          <p className="text-[13px] text-[#71914B] font-semibold">
+            +998 (97) 032-23-32
+          </p>
         </div>
       </div>
 

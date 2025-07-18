@@ -20,10 +20,12 @@ import "./navbar.scss";
 
 const Navbar = () => {
   const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [categories, setCategories] = useState([]);
-  const dropdownRef = useRef(null);
+  const langRef = useRef(null);
+  const catalogRef = useRef(null);
 
   const languages = [
     { value: "uz", label: "UZ" },
@@ -41,13 +43,26 @@ const Navbar = () => {
   const handleLanguageChange = (val) => {
     i18n.changeLanguage(val);
     localStorage.setItem("i18nextLng", val);
-    setIsOpen(false);
+    setIsLangOpen(false);
   };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
-        setIsOpen(false);
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (langRef.current && !langRef.current.contains(e.target)) {
+        setIsLangOpen(false);
+      }
+      if (catalogRef.current && !catalogRef.current.contains(e.target)) {
+        setIsCatalogOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -81,7 +96,6 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* 📦 Catalog accordion style */}
           <div className="mb-4">
             <button
               onClick={() => setCatalogOpen(!catalogOpen)}
@@ -111,7 +125,6 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* 🔗 Other nav links */}
           <div className="flex flex-col gap-2">
             {navLinks.map((item) => (
               <Link
@@ -130,21 +143,19 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar">
+    <div className="navbar relative ">
       {/* TOPBAR */}
-      <div className="topbar flex justify-between items-center px-4 py-3">
+      <div className="topbar flex justify-between items-center px-4 py-6 relative z-50">
         <Link className="brand text-xl font-bold text-[#71914B]" to="/">
           Innocare
         </Link>
 
-        {/* MOBILE: Menu Button */}
         <div className="md:hidden">
           <button onClick={() => setDrawerOpen(true)}>
             <img src={menuIcon} alt="menu" className="w-6 h-6" />
           </button>
         </div>
 
-        {/* DESKTOP: Contact & Social */}
         <div className="hidden md:flex gap-10 items-center">
           <div className="contact flex flex-col">
             <a href="tel:+998970322332" className="text-sm">
@@ -171,17 +182,16 @@ const Navbar = () => {
               </a>
             </div>
 
-            {/* Language Dropdown */}
-            <div className="language-dropdown relative" ref={dropdownRef}>
+            <div className="language-dropdown relative" ref={langRef}>
               <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={() => setIsLangOpen(!isLangOpen)}
                 className="flex items-center gap-1"
               >
                 {languages.find((l) => l.value === i18n.language)?.label ||
-                  "EN"}{" "}
+                  "EN"}
                 <BiChevronDown />
               </button>
-              {isOpen && (
+              {isLangOpen && (
                 <div className="absolute right-0 mt-2 bg-white border rounded shadow-md">
                   {languages.map((lang) => (
                     <div
@@ -199,36 +209,54 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* MENU BAR (Desktop only) */}
-      <div className="menu-bar md:flex menu-bar justify-center items-center gap-8 py-3 bg-[#71914B] text-white">
-        <div className="catalog-wrapper relative group">
-          <div className="catalog-btn flex items-center gap-1 cursor-pointer">
-            <Menu />
-            <span>{t("links.catalog") || "Каталог"}</span>
-          </div>
-          <div className="catalog-dropdown absolute left-0 mt-2 bg-white text-black p-2 rounded shadow-md hidden group-hover:block">
-            {categories.map((cat) => (
-              <Link
-                to={`/category/${cat._id}`}
-                key={cat._id}
-                className="block px-2 py-1 hover:bg-gray-100"
-              >
-                {cat[`name_${i18n.language}`]}
-              </Link>
-            ))}
-          </div>
+      {/* MENU BAR */}
+      <div className="menu-bar md:flex justify-center items-center gap-8 !py-6 bg-[#71914B] text-white relative z-100">
+        <div className="catalog-wrapper relative" ref={catalogRef}>
+          <button
+            onClick={() => setIsCatalogOpen((prev) => !prev)}
+            className="flex items-center gap-2 font-semibold"
+          >
+            {isCatalogOpen ? (
+              <>
+                <img src={xIcon} alt="close" className="w-5 h-5" />{" "}
+                {t("links.catalog") || "Каталог"}
+              </>
+            ) : (
+              <>
+                <Menu /> {t("links.catalog") || "Каталог"}
+              </>
+            )}
+          </button>
+
+          {isCatalogOpen && (
+            <div className="absolute left-0 mt-3 bg-white text-black p-3 rounded shadow-lg min-w-[200px] z-[200]">
+              {categories.map((cat) => (
+                <Link
+                  to={`/category/${cat._id}`}
+                  key={cat._id}
+                  className="block px-2 py-2 hover:bg-gray-100 rounded text-sm"
+                  onClick={() => setIsCatalogOpen(false)}
+                >
+                  {cat[`name_${i18n.language}`]}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="menu-links flex gap-6">
           {navLinks.map((item) => (
-            <Link to={item.url} key={item.url} className="hover:underline">
+            <Link
+              to={item.url}
+              key={item.url}
+              className="hover:underline font-medium"
+            >
               {t(`links.${item.key}`)}
             </Link>
           ))}
         </div>
       </div>
 
-      {/* MOBILE: Drawer */}
       {renderMobileDrawer()}
     </div>
   );

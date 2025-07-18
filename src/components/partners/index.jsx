@@ -24,7 +24,7 @@ const Partners = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      <div className="text-center space-y-4 mb-10">
+      <div className="text-start space-y-4 mb-10">
         <span className="text-sm text-[#71914B] border border-[#71914B] rounded-full px-4 py-1">
           {t("Партнёры")}
         </span>
@@ -49,11 +49,11 @@ const Partners = () => {
       >
         {partners.map((item) => (
           <SwiperSlide key={item._id}>
-            <div className="border border-[#71914B] rounded-xl p-4 h-[130px] flex flex-col items-center justify-center shadow-sm hover:shadow-md transition">
+            <div className="border border-[#71914B] rounded-xl p-4 h-[200px] flex flex-col items-center justify-center shadow-sm hover:shadow-md transition">
               <img
                 src={item.image?.url}
                 alt={getName(item)}
-                className="h-10 object-contain mb-2"
+                className="h-[130px] object-cover mb-2"
               />
               <span className="text-sm text-gray-700 text-center">
                 {getName(item)}

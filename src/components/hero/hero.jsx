@@ -46,27 +46,36 @@ function Hero() {
               <div className="absolute inset-0 bg-black opacity-50"></div>
 
               {/* Kontent */}
-              <div className="relative z-10 md:text-start text-center text-white max-w-xl md:mx-[8vw] mx-[1vw]">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">
+              <div className="relative md:text-start text-center text-white max-w-xl md:mx-[8vw] mx-[1vw]">
+                <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   {currentLang === "ru"
                     ? banner.name_ru
                     : currentLang === "en"
                     ? banner.name_en
                     : banner.name_uz}
                 </h2>
-                <p className="text-xl md:text-3xl font-bold mb-6">
+                <p className="text-md md:text-3xl font-bold mb-6">
                   {currentLang === "ru"
                     ? banner.description_ru
                     : currentLang === "en"
                     ? banner.description_en
                     : banner.description_uz}
                 </p>
-                <a
-                  href="contacts"
-                  className="inline-block bg-[#71914B] text-white hover:bg-white hover:text-[#71914B] px-8 py-3 rounded-lg transition-colors duration-300"
-                >
-                  {t("Boglanish")}
-                </a>
+
+                <div className="flex justify-center md:justify-start gap-4">
+                  <a
+                    href="contacts"
+                    className="inline-block bg-[#71914B] text-white hover:bg-white hover:text-[#71914B] px-3 py-2 md:px-8 md:py-3 rounded-lg transition-colors duration-300"
+                  >
+                    {t("Boglanish")}
+                  </a>
+                  <a
+                    href="contacts"
+                    className="inline-block text-[#71914B] bg-white hover:text-white hover:bg-[#71914B] px-3 py-2 md:px-8 md:py-3 rounded-lg transition-colors duration-300"
+                  >
+                    {t("Оставить заявку")}
+                  </a>
+                </div>
               </div>
             </div>
           );

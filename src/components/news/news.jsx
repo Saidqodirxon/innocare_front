@@ -25,7 +25,7 @@ const News = () => {
       <img
         src={item.image?.url}
         alt={getLocalizedTitle(item)}
-        className="w-full h-40 object-cover"
+        className="w-full h-40 object-cover p-3 rounded-[20px]"
       />
       <div className="p-3 text-sm">
         <p className="line-clamp-2">{getLocalizedTitle(item)}</p>

@@ -19,8 +19,12 @@ const Main = () => {
     <>
       <div className="container">
         <div className="bg">
-          <Navbar />
-          <Hero />
+          <div className="flex !z-50">
+            <Navbar />
+          </div>
+          <div className="flex !z-100">
+            <Hero />
+          </div>
         </div>
       </div>
       <WhyChooseUs />

@@ -60,26 +60,48 @@ function AboutAdv() {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 text-white text-center">
-        <div className="bg-[#71914B] rounded-lg p-5 flex flex-col items-center shadow">
-          <Users className="w-8 h-8 mb-2" />
-          <h3 className="text-xl font-bold">600+</h3>
-          <p className="text-sm mt-1">Количество клиентов</p>
-        </div>
-        <div className="bg-[#71914B] rounded-lg p-5 flex flex-col items-center shadow">
-          <CalendarCheck className="w-8 h-8 mb-2" />
-          <h3 className="text-xl font-bold">с 2021</h3>
-          <p className="text-sm mt-1">Путь развития</p>
-        </div>
-        <div className="bg-[#71914B] rounded-lg p-5 flex flex-col items-center shadow">
-          <Globe className="w-8 h-8 mb-2" />
-          <h3 className="text-xl font-bold">10+</h3>
-          <p className="text-sm mt-1">Международные Партнеры</p>
-        </div>
-        <div className="bg-[#71914B] rounded-lg p-5 flex flex-col items-center shadow">
-          <ShieldCheck className="w-8 h-8 mb-2" />
-          <h3 className="text-xl font-bold">20+</h3>
-          <p className="text-sm mt-1">Официальные специалисты</p>
+      <div className="max-w-[1300px] mx-auto px-5 mb-12">
+        <h2 className="text-3xl md:text-3xl font-bold mb-10">О нас в цифрах</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {/* 1 */}
+          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+            <div className="flex items-center space-x-2 text-sm">
+              <i className="fa-solid fa-user-group"></i>
+              <span>Клиентов за годы работы</span>
+            </div>
+            <p className="text-4xl font-extrabold">600+</p>
+            <p className="text-sm">Количество клиентов</p>
+          </div>
+
+          {/* 2 */}
+          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+            <div className="flex items-center space-x-2 text-sm">
+              <i className="fa-solid fa-briefcase"></i>
+              <span>Путь развития</span>
+            </div>
+            <p className="text-4xl font-extrabold">с 2021</p>
+            <p className="text-sm">Опыт работы</p>
+          </div>
+
+          {/* 3 */}
+          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+            <div className="flex items-center space-x-2 text-sm">
+              <i className="fa-solid fa-globe"></i>
+              <span>Страны сотрудничество</span>
+            </div>
+            <p className="text-4xl font-extrabold">10+</p>
+            <p className="text-sm">Международные Партнёры</p>
+          </div>
+
+          {/* 4 */}
+          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+            <div className="flex items-center space-x-2 text-sm">
+              <i className="fa-solid fa-id-card-clip"></i>
+              <span>Специалисты в этой сфере</span>
+            </div>
+            <p className="text-4xl font-extrabold">20+</p>
+            <p className="text-sm">Официальных сертификатов</p>
+          </div>
         </div>
       </div>
     </div>

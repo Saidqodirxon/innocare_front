@@ -11,7 +11,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 const Catalog = () => {
   const { i18n, t } = useTranslation();
   const [products, setProducts] = useState([]);
-  const [swiperReady, setSwiperReady] = useState(false); // 👈 Swiperni keyincha init qilish uchun
+  const [swiperReady, setSwiperReady] = useState(false);
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
@@ -30,7 +30,6 @@ const Catalog = () => {
       .catch((err) => console.error(err));
   }, [i18n.language]);
 
-  // Delay navigation assignment until refs are mounted
   useEffect(() => {
     setSwiperReady(true);
   }, []);
@@ -38,8 +37,7 @@ const Catalog = () => {
   return (
     <div className="py-12 px-4 md:px-16 bg-white" id="services">
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">
-        {t("why.title_1")}
-        {"  "}
+        {t("why.title_1")}{" "}
         <span className="text-[#71914B]">{t("why.title_2")}</span>
       </h2>
 
@@ -74,41 +72,43 @@ const Catalog = () => {
             loop
             autoplay={{ delay: 7000 }}
             spaceBetween={30}
-            slidesPerView={1}
+            breakpoints={{
+              0: {
+                slidesPerView: 1,
+              },
+              640: {
+                slidesPerView: 1,
+              },
+              768: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
           >
-            {Array.from({ length: Math.ceil(products.length / 3) }).map(
-              (_, slideIndex) => (
-                <SwiperSlide key={slideIndex}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {products
-                      .slice(slideIndex * 3, slideIndex * 3 + 3)
-                      .map((item, i) => (
-                        <div
-                          key={i}
-                          className="border border-[#71914B] rounded-xl flex flex-col items-center text-center p-4 shadow hover:shadow-lg transition"
-                        >
-                          <img
-                            src={item.img}
-                            alt={item.title}
-                            className="w-[160px] h-[160px] object-contain mb-4"
-                          />
-                          <h3 className="text-md font-semibold text-gray-800 mb-4 line-clamp-1">
-                            {item.title}
-                          </h3>
-                          <div className="flex gap-3">
-                            <button className="px-4 py-1 border border-green-600 text-green-700 rounded-full text-sm hover:bg-green-50 transition">
-                              {t("Подробнее")}
-                            </button>
-                            <button className="px-4 py-1 bg-green-700 text-white rounded-full text-sm hover:bg-green-800 transition">
-                              {t("Заказать")}
-                            </button>
-                          </div>
-                        </div>
-                      ))}
+            {products.map((item, i) => (
+              <SwiperSlide key={i}>
+                <div className="border border-[#71914B] rounded-xl flex flex-col justify-between text-center p-4 shadow hover:shadow-lg transition w-full max-w-[400px] mx-auto min-h-[550px]">
+                  <img
+                    src={item.img}
+                    alt={item.title}
+                    className="w-full h-[400px] object-cover rounded-lg mb-4"
+                  />
+                  <h3 className="text-md font-semibold text-gray-800 mb-4 line-clamp-1">
+                    {item.title}
+                  </h3>
+                  <div className="flex gap-3 justify-center mt-auto">
+                    <button className="px-5 py-2 border border-green-600 text-green-700 rounded-full text-sm hover:bg-green-50 transition">
+                      {t("Подробнее")}
+                    </button>
+                    <button className="px-5 py-2 bg-green-700 text-white rounded-full text-sm hover:bg-green-800 transition">
+                      {t("Заказать")}
+                    </button>
                   </div>
-                </SwiperSlide>
-              )
-            )}
+                </div>
+              </SwiperSlide>
+            ))}
           </Swiper>
         )}
       </div>

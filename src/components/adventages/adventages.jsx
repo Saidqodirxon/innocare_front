@@ -60,22 +60,50 @@ const Advantages = () => {
             </div>
 
             {index === 1 && (
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                <div className="bg-[#F0F7EB] p-6 rounded-xl shadow-sm space-y-2">
-                  <p className="text-2xl font-bold text-[#71914B]">600+</p>
-                  <p className="text-sm text-gray-700">Процедур ежемесячно</p>
-                </div>
-                <div className="bg-[#F0F7EB] p-6 rounded-xl shadow-sm space-y-2">
-                  <p className="text-2xl font-bold text-[#71914B]">с 2021</p>
-                  <p className="text-sm text-gray-700">работаем</p>
-                </div>
-                <div className="bg-[#F0F7EB] p-6 rounded-xl shadow-sm space-y-2">
-                  <p className="text-2xl font-bold text-[#71914B]">10+</p>
-                  <p className="text-sm text-gray-700">уникальных процедур</p>
-                </div>
-                <div className="bg-[#F0F7EB] p-6 rounded-xl shadow-sm space-y-2">
-                  <p className="text-2xl font-bold text-[#71914B]">20+</p>
-                  <p className="text-sm text-gray-700">специалистов</p>
+              <div className="max-w-[1300px] mx-auto px-5 mb-12">
+                <h2 className="text-3xl md:text-3xl font-bold mb-10">
+                  О нас в цифрах
+                </h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {/* 1 */}
+                  <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+                    <div className="flex items-center space-x-2 text-sm">
+                      <i className="fa-solid fa-user-group"></i>
+                      <span>Клиентов за годы работы</span>
+                    </div>
+                    <p className="text-4xl font-extrabold">600+</p>
+                    <p className="text-sm">Количество клиентов</p>
+                  </div>
+
+                  {/* 2 */}
+                  <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+                    <div className="flex items-center space-x-2 text-sm">
+                      <i className="fa-solid fa-briefcase"></i>
+                      <span>Путь развития</span>
+                    </div>
+                    <p className="text-4xl font-extrabold">с 2021</p>
+                    <p className="text-sm">Опыт работы</p>
+                  </div>
+
+                  {/* 3 */}
+                  <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+                    <div className="flex items-center space-x-2 text-sm">
+                      <i className="fa-solid fa-globe"></i>
+                      <span>Страны сотрудничество</span>
+                    </div>
+                    <p className="text-4xl font-extrabold">10+</p>
+                    <p className="text-sm">Международные Партнёры</p>
+                  </div>
+
+                  {/* 4 */}
+                  <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
+                    <div className="flex items-center space-x-2 text-sm">
+                      <i className="fa-solid fa-id-card-clip"></i>
+                      <span>Специалисты в этой сфере</span>
+                    </div>
+                    <p className="text-4xl font-extrabold">20+</p>
+                    <p className="text-sm">Официальных сертификатов</p>
+                  </div>
                 </div>
               </div>
             )}
