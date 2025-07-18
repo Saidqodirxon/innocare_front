@@ -42,6 +42,7 @@ function App() {
             <Route path="/partners" element={<PartnersPage />} />
             <Route path="/contacts" element={<ContactsPage />} />
             <Route path="/news" element={<NewsPage />} />
+            <Route path="/advantages" element={<AdvantagesPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/*" element={<NotFound />} />

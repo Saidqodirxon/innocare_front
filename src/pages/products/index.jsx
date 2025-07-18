@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
@@ -11,6 +11,8 @@ const ProductsPage = () => {
   const [product, setProduct] = useState(null);
   const [lang, setLang] = useState("ru");
   const [selectedImage, setSelectedImage] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const localLang = localStorage.getItem("i18nextLng");
@@ -90,7 +92,10 @@ const ProductsPage = () => {
                   <Download size={18} /> Аннотация файл
                 </a>
               )}
-              <button className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition">
+              <button
+                onClick={() => navigate("/contacts")}
+                className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition"
+              >
                 <MessageCircle size={18} /> Связаться с нами
               </button>
             </div>
