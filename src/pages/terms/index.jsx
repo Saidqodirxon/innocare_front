@@ -55,7 +55,7 @@ const TermsPage = () => {
               <img
                 src="/about/img1.png"
                 alt="Шаг 2"
-                className="w-full h-64 object-cover rounded-t-2xl"
+                className="w-full h-64 object-cover"
               />
             </div>
           </div>

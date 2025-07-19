@@ -45,7 +45,7 @@ const ProductsCatalog = () => {
       >
         <button
           style={{
-            background: "#799c56",
+            background: "#71914B",
             color: "#fff",
             border: "none",
             padding: "12px",
@@ -80,7 +80,7 @@ const ProductsCatalog = () => {
 
         <button
           style={{
-            background: "#799c56",
+            background: "#71914B",
             color: "#fff",
             border: "none",
             padding: "12px",
@@ -119,8 +119,8 @@ const ProductsCatalog = () => {
             setSelectedBrand(null);
           }}
           style={{
-            border: "1px solid #799c56",
-            color: "#799c56",
+            border: "1px solid #71914B",
+            color: "#71914B",
             width: "100%",
             padding: "10px",
             fontWeight: "bold",

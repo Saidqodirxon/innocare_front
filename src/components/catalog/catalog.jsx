@@ -99,10 +99,10 @@ const Catalog = () => {
                     {item.title}
                   </h3>
                   <div className="flex gap-3 justify-center mt-auto">
-                    <button className="px-5 py-2 border border-green-600 text-green-700 rounded-full text-sm hover:bg-green-50 transition">
+                    <button className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition">
                       {t("Подробнее")}
                     </button>
-                    <button className="px-5 py-2 bg-green-700 text-white rounded-full text-sm hover:bg-green-800 transition">
+                    <button className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition">
                       {t("Заказать")}
                     </button>
                   </div>
