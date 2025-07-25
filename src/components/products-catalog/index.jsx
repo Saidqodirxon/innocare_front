@@ -78,7 +78,7 @@ const ProductsCatalog = () => {
           ))}
         </div>
 
-        <button
+        {/* <button
           style={{
             background: "#71914B",
             color: "#fff",
@@ -91,8 +91,8 @@ const ProductsCatalog = () => {
           }}
         >
           Бренд
-        </button>
-        <div style={{ fontSize: "14px", marginBottom: "20px" }}>
+        </button> */}
+        {/* <div style={{ fontSize: "14px", marginBottom: "20px" }}>
           {brands.map((brand) => (
             <div
               key={brand._id}
@@ -111,7 +111,7 @@ const ProductsCatalog = () => {
               {brand.name}
             </div>
           ))}
-        </div>
+        </div> */}
 
         <button
           onClick={() => {
