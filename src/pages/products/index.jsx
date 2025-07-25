@@ -4,7 +4,16 @@ import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import Contacts from "../../components/contacts/contacts";
-import { Download, MessageCircle } from "lucide-react";
+import {
+  Download,
+  FileDown,
+  FileDownIcon,
+  MessageCircle,
+  Phone,
+  PhoneCall,
+  PhoneCallIcon,
+} from "lucide-react";
+import { PiDownloadFill } from "react-icons/pi";
 
 const ProductsPage = () => {
   const { id } = useParams();
@@ -16,6 +25,20 @@ const ProductsPage = () => {
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef();
+
+  function convertToEmbedUrl(url) {
+    if (url.includes("youtu.be/")) {
+      const videoId = url.split("youtu.be/")[1].split("?")[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    if (url.includes("watch?v=")) {
+      const videoId = url.split("watch?v=")[1].split("&")[0];
+      return `https://www.youtube.com/embed/${videoId}`;
+    }
+
+    return url; // Fallback, maybe already embed link or not YouTube
+  }
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -102,6 +125,15 @@ const ProductsPage = () => {
             <h1 className="text-2xl font-bold text-[#2c2c2c]">
               {getLangText("name")}
             </h1>
+            {/* Description Block */}
+            <div ref={descriptionRef} className="space-y-4">
+              {/* <h2 className="text-2xl font-bold text-[#7bb44d]">
+                Описание товара
+              </h2> */}
+              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+                {getLangText("description")}
+              </p>
+            </div>
 
             <div className="flex flex-wrap gap-4">
               {product?.file?.url && (
@@ -111,14 +143,14 @@ const ProductsPage = () => {
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55]  text-[#fff] hover:bg-[#6E8D4B] transition text-sm font-medium"
                 >
-                  <Download size={18} /> Аннотация файл
+                  <FileDown size={18} /> Аннотация файл
                 </a>
               )}
               <button
                 onClick={() => navigate("/contacts")}
                 className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
               >
-                <MessageCircle size={18} /> Связаться с нами
+                <Phone size={18} /> Связаться с нами
               </button>
             </div>
 
@@ -146,7 +178,7 @@ const ProductsPage = () => {
 
                 {dropdownOpen && (
                   <div className="absolute top-[110%] left-0 w-[180px] flex flex-col border border-[#7A9B55] rounded-xl bg-white z-20">
-                    {product?.link_1 && product?.link_1 !== "нет" && (
+                    {product?.link_1 && product?.link_1 !== "" && (
                       <a
                         href={product.link_1}
                         target="_blank"
@@ -155,7 +187,7 @@ const ProductsPage = () => {
                         Uzum
                       </a>
                     )}
-                    {product?.link_2 && product?.link_2 !== "нет" && (
+                    {product?.link_2 && product?.link_2 !== "" && (
                       <a
                         href={product.link_2}
                         target="_blank"
@@ -164,7 +196,7 @@ const ProductsPage = () => {
                         Yandex
                       </a>
                     )}
-                    {product?.link_3 && product?.link_3 !== "нет" && (
+                    {product?.link_3 && product?.link_3 !== "" && (
                       <a
                         href={product.link_3}
                         target="_blank"
@@ -179,19 +211,11 @@ const ProductsPage = () => {
             </div>
           </div>
         </div>
-
-        {/* Description Block */}
-        <div ref={descriptionRef} className="space-y-4">
-          <h2 className="text-2xl font-bold text-[#7bb44d]">Описание товара</h2>
-          <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-            {getLangText("description")}
-          </p>
-        </div>
         {/* Video Section */}
-        {product?.link_3 && product?.link_3 !== "нет" && (
+        {product?.video && product?.video !== "нет" && (
           <div className="w-full aspect-video rounded-xl overflow-hidden">
             <iframe
-              src={product.link_3}
+              src={convertToEmbedUrl(product.video)}
               className="w-full h-full rounded-xl"
               allow="autoplay; encrypted-media"
               allowFullScreen

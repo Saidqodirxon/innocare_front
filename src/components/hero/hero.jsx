@@ -39,7 +39,7 @@ function Hero() {
         {banners.map((banner) => {
           const BannerContent = (
             <div
-              className="relative h-[100dvh] bg-cover bg-center bg-no-repeat flex items-center md:justify-start justify-center px-[6vw] "
+              className="relative h-[80dvh] bg-cover bg-center bg-no-repeat flex items-center md:justify-start justify-center px-[6vw] "
               style={{ backgroundImage: `url(${banner?.image?.url})` }}
             >
               {/* Overlay */}

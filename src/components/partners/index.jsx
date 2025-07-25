@@ -53,7 +53,7 @@ const Partners = () => {
               <img
                 src={item.image?.url}
                 alt={getName(item)}
-                className="h-[130px] object-cover mb-2"
+                className="h-[130px] object-contain mb-2"
               />
               <span className="text-sm text-gray-700 text-center">
                 {getName(item)}

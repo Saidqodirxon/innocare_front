@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  FaTelegramPlane,
-  FaInstagram,
-  FaYoutube,
-  FaFacebookF,
-} from "react-icons/fa";
+import { FaInstagram, FaYoutube, FaFacebook, FaTelegram } from "react-icons/fa";
 import { PhoneCall } from "lucide-react";
 
 const Footer = () => {
@@ -12,24 +7,23 @@ const Footer = () => {
 
   return (
     <footer className="bg-[#71914B] text-white py-8 px-4">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-5 gap-6 text-base">
         {/* Logo + Social */}
         <div>
           <h2 className="text-2xl font-semibold mb-2">Innocare</h2>
-          <p className="text-xs mb-4">
+        </div>{" "}
+        <div>
+          <p className="text-sm mb-4">
             INNOCARE — Все товары сертифицированы, услуги лицензированы.
           </p>
           <div className="flex space-x-3">
-            {[FaTelegramPlane, FaInstagram, FaYoutube, FaFacebookF].map(
-              (Icon, i) => (
-                <a key={i} href="#" className="text-white hover:text-gray-200">
-                  <Icon />
-                </a>
-              )
-            )}
+            {[FaTelegram, FaInstagram, FaYoutube, FaFacebook].map((Icon, i) => (
+              <a key={i} href="#" className="text-white hover:text-gray-200">
+                <Icon className="w-6 h-6" />
+              </a>
+            ))}
           </div>
         </div>
-
         {/* Навигация */}
         <div>
           <ul className="space-y-2">
@@ -55,7 +49,6 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
         {/* Каталог */}
         <div>
           <ul className="space-y-2">
@@ -71,24 +64,27 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-
         {/* Контакты и кнопка */}
         <div className="flex flex-col gap-2">
           <div>
-            <p>О нас</p>
-            <p className="text-xs">Пн - Суб, 09:00 - 18:00</p>
+            <p className="text-base">О нас</p>
+            <p className="text-sm">Пн - Суб, 09:00 - 18:00</p>
           </div>
-          <p className="text-xs">
+          <p className="text-sm">
             Все товары зарегистрированы, услуги лицензированы
           </p>
           <button className="mt-2 flex items-center gap-2 text-[#71914B] bg-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition w-fit">
-            <PhoneCall size={16} /> Позвонит нам
+            <span className="flex items-center bg-[#71914B] text-white rounded-full p-2">
+              {" "}
+              <PhoneCall size={12} className="" />
+            </span>{" "}
+            Позвонит нам
           </button>
         </div>
       </div>
 
       {/* Footer bottom */}
-      <div className="mt-6 border-t border-white/20 pt-4 text-xs text-center md:flex md:justify-between md:items-center">
+      <div className="mt-6 border-t border-white/20 pt-4 text-sm text-center md:flex md:justify-between md:items-center">
         <p>Копирайт: "© {currentYear} Innocare. Все права защищены."</p>
         <p className="mt-2 md:mt-0">
           Разработала команда{" "}

@@ -7,7 +7,7 @@ import {
   FaFacebookF,
 } from "react-icons/fa";
 import { BiChevronDown } from "react-icons/bi";
-import { Menu } from "lucide-react";
+import { Menu, UserIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import i18n from "../../i18n/i18n";
 import axios from "axios";
@@ -28,9 +28,9 @@ const Navbar = () => {
   const catalogRef = useRef(null);
 
   const languages = [
-    { value: "uz", label: "UZ" },
-    { value: "ru", label: "RU" },
-    { value: "en", label: "EN" },
+    { value: "uz", label: "O'zbekcha" },
+    { value: "ru", label: "Русский" },
+    { value: "en", label: "English" },
   ];
 
   useEffect(() => {
@@ -205,6 +205,7 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+            <UserIcon className="w-6 h-6 text-[#71914B] cursor-pointer" />
           </div>
         </div>
       </div>

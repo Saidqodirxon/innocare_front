@@ -53,7 +53,7 @@ const TermsPage = () => {
                 </p>
               </div>
               <img
-                src="/about/img1.png"
+                src="/about/img2.png"
                 alt="Шаг 2"
                 className="w-full h-64 object-cover"
               />
@@ -64,7 +64,7 @@ const TermsPage = () => {
           <div className="w-full md:w-1/3 px-4 mb-8">
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full flex flex-col relative">
               <img
-                src="/about/img1.png"
+                src="/about/img3.png"
                 alt="Шаг 1"
                 className="w-full h-64 object-cover rounded-t-2xl"
               />

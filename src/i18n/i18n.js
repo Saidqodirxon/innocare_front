@@ -13,6 +13,12 @@ i18n.use(initReactI18next).init({
           portfolio: "Портфолио",
           services: "Хизматлар",
           contacts: "Алоқа",
+          terms: "Шартлар",
+          news: "Янгиликлар",
+          partners: "Ҳамкорлар",
+          catalog: "Каталог",
+          advantages: "Афзалликлар",
+
         },
         navbar: {
           logoAlt: "Логотип",
@@ -181,6 +187,11 @@ i18n.use(initReactI18next).init({
           about_us: "О компании",
           portfolio: "Портфолио",
           services: "Услуги",
+          advantages: "Наши преимущества",
+          partners: "Партнеры",
+          catalog: "Каталог",
+          terms: "Условия",
+          news: "Новости",
           contacts: "Контакты",
         },
         advantages: {
@@ -341,6 +352,11 @@ i18n.use(initReactI18next).init({
           portfolio: "Portfolio",
           services: "Services",
           contacts: "Contact",
+          terms: "Terms",
+          news: "News",
+          partners: "Partners",
+          catalog: "Catalog",
+          advantages: "Advantages",
         },
         advantages: {
           title_1: "OUR",

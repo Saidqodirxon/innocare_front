@@ -44,10 +44,10 @@ const NewsPage = () => {
                 />
               </div>
               <div className="md:w-1/2 w-full space-y-3">
-                <h2 className="text-lg md:text-xl font-semibold text-gray-800">
+                <h2 className="text-lg md:text-2xl font-semibold text-gray-800">
                   {title}
                 </h2>
-                <p className="text-sm text-gray-700 leading-relaxed">{desc}</p>
+                <p className="text-md text-gray-700 leading-relaxed">{desc}</p>
               </div>
             </div>
           );
