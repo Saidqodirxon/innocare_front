@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 import Main from "./pages/main/main";
 import NotFound from "./pages/404page/404";
 import ScrollToTopButton from "./components/scrollTopBtn";
@@ -13,19 +16,30 @@ import CatalogPage from "./pages/catalog";
 import PartnersPage from "./pages/partners";
 import TermsPage from "./pages/terms";
 import ProductsPage from "./pages/products";
+import PageWrapper from "./PageWrapper";
 
 function App() {
   const location = useLocation();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 3000);
-    return () => clearTimeout(timer);
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+      mirror: false,
+    });
   }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [location]);
+    AOS.refreshHard();
+  }, [location.pathname]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <main>
@@ -36,18 +50,90 @@ function App() {
       ) : (
         <>
           <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/catalog" element={<CatalogPage />} />
-            <Route path="/catalog/:id" element={<ProductsPage />} />
-            <Route path="/partners" element={<PartnersPage />} />
-            <Route path="/contacts" element={<ContactsPage />} />
-            <Route path="/news" element={<NewsPage />} />
-            <Route path="/advantages" element={<AdvantagesPage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/terms" element={<TermsPage />} />
-            <Route path="/*" element={<NotFound />} />
+            <Route
+              path="/"
+              element={
+                <PageWrapper>
+                  <Main />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/catalog"
+              element={
+                <PageWrapper>
+                  <CatalogPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/catalog/:id"
+              element={
+                <PageWrapper>
+                  <ProductsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/partners"
+              element={
+                <PageWrapper>
+                  <PartnersPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PageWrapper>
+                  <ContactsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/news"
+              element={
+                <PageWrapper>
+                  <NewsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/advantages"
+              element={
+                <PageWrapper>
+                  <AdvantagesPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <PageWrapper>
+                  <AboutPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/terms"
+              element={
+                <PageWrapper>
+                  <TermsPage />
+                </PageWrapper>
+              }
+            />
+            <Route
+              path="/*"
+              element={
+                <PageWrapper>
+                  <NotFound />
+                </PageWrapper>
+              }
+            />
           </Routes>
+
           <CallButton />
+          <ScrollToTopButton />
         </>
       )}
     </main>

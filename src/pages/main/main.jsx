@@ -17,7 +17,7 @@ import News from "../../components/news/news";
 const Main = () => {
   return (
     <>
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="bg">
           <div className="flex !z-50">
             <Navbar />
