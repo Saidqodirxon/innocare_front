@@ -52,7 +52,7 @@ const AboutMain = () => {
         {/* Rasm bo‘limi */}
         <div className="md:w-1/2">
           <img
-            src={about.image?.url || "/about/img1.png"}
+            src={"/about/img1.png"}
             alt="About"
             className="w-full rounded-xl object-cover"
           />

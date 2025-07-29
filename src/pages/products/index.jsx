@@ -4,40 +4,30 @@ import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import Contacts from "../../components/contacts/contacts";
-import {
-  Download,
-  FileDown,
-  FileDownIcon,
-  MessageCircle,
-  Phone,
-  PhoneCall,
-  PhoneCallIcon,
-} from "lucide-react";
-import { PiDownloadFill } from "react-icons/pi";
+import { FileDown, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const ProductsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const [lang, setLang] = useState("ru");
   const [selectedImage, setSelectedImage] = useState("");
   const descriptionRef = useRef(null);
   const navigate = useNavigate();
-
+  const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef();
+  const { i18n, t } = useTranslation();
+  const lang = i18n.language || "uz";
 
   function convertToEmbedUrl(url) {
     if (url.includes("youtu.be/")) {
       const videoId = url.split("youtu.be/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-
     if (url.includes("watch?v=")) {
       const videoId = url.split("watch?v=")[1].split("&")[0];
       return `https://www.youtube.com/embed/${videoId}`;
     }
-
-    return url; // Fallback, maybe already embed link or not YouTube
+    return url;
   }
 
   useEffect(() => {
@@ -51,9 +41,6 @@ const ProductsPage = () => {
   }, []);
 
   useEffect(() => {
-    const localLang = localStorage.getItem("i18nextLng");
-    if (["uz", "ru", "en"].includes(localLang)) setLang(localLang);
-
     axios.get(`https://back.innocare.uz/products/${id}`).then((res) => {
       const productData = res.data?.data;
       setProduct(productData);
@@ -66,9 +53,7 @@ const ProductsPage = () => {
   };
 
   const scrollToDescription = () => {
-    if (descriptionRef.current) {
-      descriptionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
+    descriptionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   if (!product) {
@@ -76,7 +61,7 @@ const ProductsPage = () => {
       <>
         <Navbar />
         <div className="max-w-[1200px] mx-auto px-4 py-10 text-center">
-          <p className="text-xl">Загрузка...</p>
+          <p className="text-xl">{t("loading")}</p>
         </div>
         <Contacts />
         <Footer />
@@ -89,14 +74,14 @@ const ProductsPage = () => {
       <Navbar />
       <div className="max-w-[1200px] mx-auto px-4 py-10 space-y-10">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Left Block */}
+          {/* Image Block */}
           <div className="flex gap-4 w-full lg:w-1/3">
             <div className="flex-1 p-2 border-2 border-[#7A9B55] rounded-xl flex items-center justify-center">
               <img
                 src={selectedImage}
                 alt={getLangText("name")}
                 className="w-full h-full object-contain rounded-xl"
-                style={{ maxHeight: "500px", height: "100%", width: "100%" }}
+                style={{ maxHeight: "500px" }}
               />
             </div>
             <div className="flex flex-col gap-4 overflow-y-auto max-h-[500px]">
@@ -120,20 +105,15 @@ const ProductsPage = () => {
             </div>
           </div>
 
-          {/* Right Block */}
+          {/* Product Info */}
           <div className="flex flex-col w-full lg:w-2/3 space-y-4">
             <h1 className="text-2xl font-bold text-[#2c2c2c]">
               {getLangText("name")}
             </h1>
-            {/* Description Block */}
-            <div ref={descriptionRef} className="space-y-4">
-              {/* <h2 className="text-2xl font-bold text-[#7bb44d]">
-                Описание товара
-              </h2> */}
-              <p className="text-gray-700 leading-relaxed whitespace-pre-line">
-                {getLangText("description")}
-              </p>
-            </div>
+
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {getLangText("description")}
+            </p>
 
             <div className="flex flex-wrap gap-4">
               {product?.file?.url && (
@@ -141,16 +121,17 @@ const ProductsPage = () => {
                   href={product.file.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55]  text-[#fff] hover:bg-[#6E8D4B] transition text-sm font-medium"
+                  className="w-[185px] flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
                 >
-                  <FileDown size={18} /> Аннотация файл
+                  <FileDown size={18} />{" "}
+                  {t("product.annotation_file", "Yuklab olish")}
                 </a>
               )}
               <button
                 onClick={() => navigate("/contacts")}
-                className="flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
+                className="w-[185px] flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
               >
-                <Phone size={18} /> Связаться с нами
+                <Phone size={18} /> {t("contacts.send", "Bog‘lanish")}
               </button>
             </div>
 
@@ -159,18 +140,17 @@ const ProductsPage = () => {
                 onClick={scrollToDescription}
                 className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
               >
-                Узнать подробнее
+                {t("Batafsil", "Batafsil")}
               </button>
 
-              {/* Dropdown */}
-              <div ref={dropdownRef} className="flex g;6ap-4 flex-wrap relative">
+              <div ref={dropdownRef} className="relative">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
+                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium flex justify-between items-center"
                 >
-                  Купить
+                  {t("BuyurtmaBerish", "Sotib olish")}
                   <span
-                    className={`${dropdownOpen ? "rotate-180" : ""} transition`}
+                    className={`transition ${dropdownOpen ? "rotate-180" : ""}`}
                   >
                     ▾
                   </span>
@@ -178,31 +158,31 @@ const ProductsPage = () => {
 
                 {dropdownOpen && (
                   <div className="absolute top-[110%] left-0 w-[180px] flex flex-col border border-[#7A9B55] rounded-xl bg-white z-20">
-                    {product?.link_1 && product?.link_1 !== "" && (
+                    {product?.link_1 && (
                       <a
                         href={product.link_1}
                         target="_blank"
-                        className="px-4 py-2 text-[#2c2c2c] text-sm hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
+                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
                       >
                         Uzum
                       </a>
                     )}
-                    {product?.link_2 && product?.link_2 !== "" && (
+                    {product?.link_2 && (
                       <a
                         href={product.link_2}
                         target="_blank"
-                        className="px-4 py-2 text-[#2c2c2c] text-sm hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
+                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
                       >
                         Yandex
                       </a>
                     )}
-                    {product?.link_3 && product?.link_3 !== "" && (
+                    {product?.link_3 && (
                       <a
                         href={product.link_3}
                         target="_blank"
-                        className="px-4 py-2 text-[#2c2c2c] text-sm hover:bg-[#F4F9EE]"
+                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE]"
                       >
-                        Аптека
+                        {t("Аптека", "Apteka")}
                       </a>
                     )}
                   </div>
@@ -211,11 +191,12 @@ const ProductsPage = () => {
             </div>
           </div>
         </div>
-        {/* Right Block */}
-        <div className="flex flex-col w-full lg:w-2/3 space-y-4">
-          <div ref={descriptionRef} className="space-y-4">
+
+        {/* Additional Info */}
+        <div className="w-full lg:w-2/3">
+          <div ref={descriptionRef} className="space-y-4 mt-8">
             <h2 className="text-2xl font-bold text-[#7bb44d]">
-              Описание товара
+              {t("product.details", "Mahsulot haqida")}
             </h2>
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
               {getLangText("about")}
@@ -223,9 +204,9 @@ const ProductsPage = () => {
           </div>
         </div>
 
-        {/* Video Section */}
+        {/* Video */}
         {product?.video && product?.video !== "нет" && (
-          <div className="w-full aspect-video rounded-xl overflow-hidden">
+          <div className="w-full aspect-video rounded-xl overflow-hidden mt-6">
             <iframe
               src={convertToEmbedUrl(product.video)}
               className="w-full h-full rounded-xl"
@@ -236,7 +217,6 @@ const ProductsPage = () => {
           </div>
         )}
       </div>
-
       <Contacts />
       <Footer />
     </>

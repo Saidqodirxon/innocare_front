@@ -13,6 +13,7 @@ const ProductsCatalog = () => {
   const { i18n } = useTranslation();
   const navigate = useNavigate();
   const currentLang = i18n.language || "ru";
+  const { t } = useTranslation();
 
   useEffect(() => {
     axios
@@ -62,7 +63,7 @@ const ProductsCatalog = () => {
             marginBottom: "15px",
           }}
         >
-          Категории
+          {t("categories")}
         </button>
         <div style={{ marginBottom: "20px", fontSize: "14px" }}>
           {categories.map((cat) => (
@@ -100,7 +101,7 @@ const ProductsCatalog = () => {
             borderRadius: "4px",
           }}
         >
-          Очистка
+          {t("Tozalash")}
         </button>
       </div>
 

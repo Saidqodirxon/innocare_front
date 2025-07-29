@@ -59,7 +59,7 @@ const AboutPage = () => {
             </div>
             <div className="w-full md:w-[45%]">
               <img
-                src="/abouts/img1.png"
+                src="/about/img1.png"
                 alt="company"
                 className="w-full rounded-2xl shadow-md"
               />

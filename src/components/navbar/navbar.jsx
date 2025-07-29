@@ -35,7 +35,11 @@ const Navbar = () => {
 
   useEffect(() => {
     axios
-      .get("https://back.innocare.uz/categories?page[limit]=3")
+      .get(
+        "https://back.innocare.uz/categories"
+
+        // ?page[limit]=3
+      )
       .then((res) => setCategories(res.data.data))
       .catch((err) => console.error("Kategoriyalarni olishda xatolik:", err));
   }, []);
