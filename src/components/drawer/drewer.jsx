@@ -121,11 +121,11 @@ export default function TemporaryDrawer() {
 
           <div className="flex flex-col items-center gap-4 mt-auto mb-6">
             <a
-              href="tel:+998993062020"
+              href="tel:+998970322332"
               className="flex items-center gap-2 border px-4 py-2 rounded-md"
             >
               <img src={phone} alt="phone" className="w-5" />
-              +998 99 306 20 20
+              +998 (97) 032-23-32
             </a>
             <div className="flex gap-3">
               {languages.map((lang) => (

@@ -96,7 +96,7 @@ const Contacts = () => {
 
         <div className="flex-1 w-full">
           <iframe
-            src="https://yandex.uz/map-widget/v1/-/CHDqMC8T"
+            src="https://yandex.uz/map-widget/v1/?ll=69.200379%2C41.339806&z=16&pt=69.200379,41.339806"
             width="100%"
             height="100%"
             className="rounded-xl min-h-[200px] md:min-h-[300px]"

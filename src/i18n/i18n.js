@@ -19,7 +19,7 @@ i18n.use(initReactI18next).init({
 
         navbar: {
           logoAlt: "Logotip",
-          phoneNumber: "+998 99 306 20 20",
+          phoneNumber: "+998 (97) 032-23-32",
           languageAlt: "Joriy til",
           lang: {
             uz: "O‘zbek",
@@ -54,7 +54,6 @@ i18n.use(initReactI18next).init({
         partners: {
           title_1: "Bizning hamkorlarimiz — umumiy qadriyatlar va ko‘p yillik ishonch asosida bog‘langan kompaniyalar va insonlar.",
         },
-
         contacts: {
           title_1: "Aloqa",
           title_2: "va ma'lumotlar",
@@ -66,10 +65,10 @@ i18n.use(initReactI18next).init({
           address_label: "Manzil",
           address: "Shayxontohur tumani, Samarqand Darvoza ko‘chasi, 3/48",
           email_label: "Elektron pochta",
-          socials_label: "Ijtimoiy tarmoqlar",
           phone_label: "Telefon",
+          time_label: "Ish vaqti",
+          working_hours: "Dushanba–shanba, 9:00–18:00"
         },
-
         advantages: {
           title_1: "BIZNING",
           title_2: "AFZALLIKLARIMIZ",
@@ -99,16 +98,39 @@ i18n.use(initReactI18next).init({
           countriesLabel: "Xalqaro hamkorlar",
           specialistsTitle: "Soha mutaxassislari",
           specialistsLabel: "Rasmiy sertifikatlar",
+
+          cooperation: {
+            title: "Hamkorlik shartlari",
+            termTitle: "Moslashuvchan yetkazib berish shartlari:",
+            termDesc: "Mijoz ehtiyojlariga mos ravishda individual muddat va hajmlar.",
+            supportTitle: "Maslahat va qo‘llab-quvvatlash:",
+            supportDesc: "Barcha hamkorlar uchun bepul maslahatlar va texnik yordam.",
+            qualityTitle: "Sifat kafolati:",
+            qualityDesc: "Ishlab chiqarishdagi nuqsonlar aniqlansa, 30 kun ichida tovarni qaytarish yoki almashtirish.",
+            discountTitle: "Chegirmalar va bonuslar:",
+            discountDesc: "Doimiy mijozlar uchun maxsus chegirmalar va yirik buyurtmalar uchun bonuslar."
+          },
+          innocare: {
+            title: "INNOCARE bilan ishlash shartlari",
+            trainingTitle: "Xodimlarni o‘qitish:",
+            trainingDesc: "Hamkorlar xodimlari uchun mahsulot va texnologiyalar bo‘yicha bepul treninglar va seminarlar.",
+            programTitle: "Hamkorlik dasturi:",
+            programDesc: "Yangi mijozlarni jalb qilish va tarmoqni kengaytirish uchun qo‘shimcha daromad.",
+            updateTitle: "Doimiy yangilanishlar:",
+            updateDesc: "Har oylik xat orqali kompaniya yangiliklari va aksiyalariga kirish imkoniyati.",
+            managerTitle: "Shaxsiy menejer:",
+            managerDesc: "Har bir hamkor uchun tezkor muammolarni hal qilishga mas’ul dedicated menejer tayinlanadi."
+          },
           purchase: {
             title: "Mahsulot xarid qilish shartlari",
             paymentTitle: "Qulay to‘lov:",
-            paymentDesc: "Naqd, karta yoki hisob orqali to‘lov imkoniyati",
+            paymentDesc: "Naqd pul, bank kartasi yoki bank o'tkazmasi orqali to‘lov imkoniyati.",
             deliveryTitle: "Yetkazib berish:",
-            deliveryDesc: "Belgilangan summadan ortiq buyurtmalarga bepul yetkazib berish",
+            deliveryDesc: "Ma’lum summadan ortiq buyurtmalarda bepul yetkazib berish (buyurtma paytida aniqlanadi).",
             guaranteeTitle: "Mahsulot kafolati:",
-            guaranteeDesc: "Ekspluatatsiya shartlariga amal qilinganda 12 oylik kafolat",
+            guaranteeDesc: "Ekspluatatsiya qoidalariga amal qilinganda barcha mahsulotlarga 12 oylik kafolat.",
             samplesTitle: "Sinov namunalar:",
-            samplesDesc: "Yirik xarid oldidan sifatni tekshirish uchun namunalar buyurtma qilish mumkin"
+            samplesDesc: "Yirik xariddan oldin sifatni baholash uchun test namunalarini buyurtma qilish imkoniyati."
           }
         },
 
@@ -224,7 +246,7 @@ i18n.use(initReactI18next).init({
 
         links: {
           home: "Home",
-          about_us: "About Company",
+          about_us: "About Us",
           portfolio: "Portfolio",
           services: "Services",
           contacts: "Contact",
@@ -246,72 +268,96 @@ i18n.use(initReactI18next).init({
         },
 
         partners: {
-          title_1: "Our partners are companies and people connected by shared values and long-term trust.",
+          title_1: "Our partners — companies and people united by shared values and long-term trust.",
         },
 
         contacts: {
           title_1: "Contact",
-          title_2: "Information",
+          title_2: "and information",
           title_3: "Write your question or message",
           title_4: "Enter your name",
           send: "Send",
-          success: "Your message was sent successfully!",
+          success: "Your message has been successfully sent!",
           error: "An error occurred while sending!",
           address_label: "Address",
           address: "Shaykhontohur district, Samarqand Darvoza street, 3/48",
           email_label: "Email",
-          socials_label: "Social media",
           phone_label: "Phone",
+          time_label: "Working hours",
+          working_hours: "Monday–Saturday, 9:00–18:00"
         },
 
         advantages: {
           title_1: "OUR",
           title_2: "ADVANTAGES",
           guarantee: {
-            title: "We work under a signed contract and give a 10-year warranty",
-            description: "Each project is executed under an official contract with exact deadlines and obligations. We believe in quality and provide a 10-year warranty — based on reliable materials and proven technologies.",
+            title: "We work based on a signed contract and provide a 10-year warranty",
+            description: "Each project is carried out under an official contract with clear deadlines and commitments. We trust in quality and provide a 10-year warranty — based on reliable materials and tested technologies.",
           },
           materials: {
             title: "Premium materials",
-            description: "Natural quartz travertine and high-quality adhesives are used.",
+            description: "Natural quartz travertine and quality adhesive are used.",
           },
           price: {
             title: "Transparent pricing",
             description: "We offer fair pricing without hidden fees.",
           },
-          button: "Learn more",
+          button: "More",
           imageAlt: "Advantages",
         },
 
         abouts: {
-          statsTitle: "Our achievements in numbers",
+          statsTitle: "About Us in Numbers",
           clientsTitle: "Clients over the years",
           clientsLabel: "Number of clients",
-          experienceTitle: "Experience path",
+          experienceTitle: "Development path",
           experienceLabel: "Years of experience",
-          countriesTitle: "Partner countries",
+          countriesTitle: "Countries of cooperation",
           countriesLabel: "International partners",
-          specialistsTitle: "Field specialists",
-          specialistsLabel: "Certified professionals",
+          specialistsTitle: "Industry specialists",
+          specialistsLabel: "Official certificates",
+
+          cooperation: {
+            title: "Cooperation terms",
+            termTitle: "Flexible delivery terms:",
+            termDesc: "Individual deadlines and volumes tailored to client needs.",
+            supportTitle: "Consultation and support:",
+            supportDesc: "Free consultations and technical support for all partners.",
+            qualityTitle: "Quality guarantee:",
+            qualityDesc: "If manufacturing defects are found, return or exchange within 30 days.",
+            discountTitle: "Discounts and bonuses:",
+            discountDesc: "Special discounts for regular clients and bonuses for large orders."
+          },
+          innocare: {
+            title: "Terms of working with INNOCARE",
+            trainingTitle: "Staff training:",
+            trainingDesc: "Free training and seminars on products and technologies for partner staff.",
+            programTitle: "Partnership program:",
+            programDesc: "Additional income for attracting new clients and expanding the network.",
+            updateTitle: "Regular updates:",
+            updateDesc: "Access to company news and promotions via monthly email.",
+            managerTitle: "Personal manager:",
+            managerDesc: "A dedicated manager is assigned to each partner for quick issue resolution."
+          },
           purchase: {
             title: "Product purchase terms",
             paymentTitle: "Convenient payment:",
-            paymentDesc: "Payment via cash, card or invoice",
+            paymentDesc: "Payment via cash, bank card, or bank transfer.",
             deliveryTitle: "Delivery:",
-            deliveryDesc: "Free delivery for orders above a specified amount",
+            deliveryDesc: "Free delivery for orders above a certain amount (determined during the order).",
             guaranteeTitle: "Product warranty:",
-            guaranteeDesc: "12-month warranty under correct usage",
-            samplesTitle: "Samples:",
-            samplesDesc: "You can order samples before a major purchase",
+            guaranteeDesc: "12-month warranty on all products if usage guidelines are followed.",
+            samplesTitle: "Sample products:",
+            samplesDesc: "Option to order test samples to evaluate quality before large purchase."
           }
         },
 
         footer: {
-          description: "INNOCARE — All products are certified, services are licensed.",
+          description: "INNOCARE — All products are certified, and services are licensed.",
           links: {
             partners: "Partners",
-            advantages: "Our advantages",
-            terms: "Cooperation terms",
+            advantages: "Our Advantages",
+            terms: "Cooperation Terms",
             contacts: "Contact",
             catalog: "Catalog",
             news: "News",
@@ -323,7 +369,7 @@ i18n.use(initReactI18next).init({
         },
 
         notfound: {
-          imageAlt: "404 error",
+          imageAlt: "404 Error",
           title: "Page not found",
           button: "Home",
         },
@@ -331,45 +377,45 @@ i18n.use(initReactI18next).init({
         catalog: {
           title_1: "OUR",
           title_2: "SERVICES",
-          more: "Learn more",
+          more: "More",
         },
 
         contact_form: {
           heading: "Contact us",
-          short_about: "About us",
-          company_description: "“Fasad Master” LLC — a facade service company with 10 years of experience. 400+ objects across Uzbekistan, 90+ specialists. We work based on official contracts.",
-          form_heading: "Leave your contact info",
-          thanks: "Thank you! We’ll contact you shortly.",
+          short_about: "About us briefly",
+          company_description: "LLC “Fasad Master” — a company with 10 years of experience in facade work. 400+ objects across Uzbekistan, 90+ specialists. We work based on official contracts.",
+          form_heading: "Leave your contact details",
+          thanks: "Thank you! We’ll contact you soon.",
           name: "Name",
           phone: "Phone",
           send: "Send",
-          privacy: "Your data will remain confidential.",
+          privacy: "Your data will be kept confidential.",
         },
 
         terms: {
-          title: "Cooperation Terms",
-          flex_delivery_title: "Flexible delivery conditions",
+          title: "Cooperation terms",
+          flex_delivery_title: "Flexible delivery terms",
           flex_delivery_desc: "Individual deadlines and volumes based on client needs.",
-          support_title: "Support and consultation",
+          support_title: "Consultation and support",
           support_desc: "Free consultations and technical support for all partners.",
           quality_title: "Quality guarantee",
-          quality_desc: "If a manufacturing defect is found, the product can be returned or exchanged within 30 days.",
+          quality_desc: "If manufacturing defects are found, return or exchange within 30 days.",
           discounts_title: "Discounts and bonuses",
-          discounts_desc: "Special discounts for regular clients and bonuses for large orders.",
+          discounts_desc: "Special discounts for regular customers and bonuses for large orders."
         },
 
         qadam: "step",
         categories: "Category",
-        Tozalash: "Cleaning",
+        Tozalash: "Clear",
 
         otziv: {
-          title_1: "Our clients",
-          title_2: "opinions",
+          title_1: "Our",
+          title_2: "Clients’ Feedback",
         },
 
         product: {
           annotation_file: "Download",
-          details: "Product details"
+          details: "About the product"
         },
 
         narxi: "Price",
@@ -378,7 +424,7 @@ i18n.use(initReactI18next).init({
         partners: {
           title_1: "Our international partners",
           description: "We cooperate with leading international companies in dermatology, trichology, and beauty.",
-          list_title: "List of partners:",
+          list_title: "Partner list:",
         },
 
         why: {
@@ -386,19 +432,19 @@ i18n.use(initReactI18next).init({
           title_2: "CHOOSE US",
           reason1: {
             title: "Experience",
-            text: "We use certified materials, strictly follow contracts, maintain fair pricing, and ensure full self-sufficiency.",
+            text: "We use certified materials, strictly follow contracts, maintain fair pricing, and operate with full autonomy.",
           },
           reason2: {
             title: "Quality and reliability",
-            text: "Reliable materials, strict contracts, and fair pricing — that’s our quality guarantee.",
+            text: "Reliable materials, strict contracts, and fair pricing — a guarantee of quality.",
           },
           reason3: {
             title: "Individual approach",
-            text: "We offer tailored solutions for each client.",
+            text: "We offer individual solutions tailored to each customer.",
           },
           reason4: {
             title: "Transparency",
-            text: "We ensure complete transparency in pricing and services.",
+            text: "We follow full transparency in pricing and services.",
           }
         }
       }
@@ -409,12 +455,12 @@ i18n.use(initReactI18next).init({
         Boglanish: "Связаться",
         Qoldirish: "Оставить заявку",
         Batafsil: "Подробнее",
-        BuyurtmaBerish: "Оформить заказ",
+        BuyurtmaBerish: "Сделать заказ",
         Jonatish: "Отправить",
 
         navbar: {
           logoAlt: "Логотип",
-          phoneNumber: "+998 99 306 20 20",
+          phoneNumber: "+998 (97) 032-23-32",
           languageAlt: "Текущий язык",
           lang: {
             uz: "Узбекский",
@@ -437,8 +483,8 @@ i18n.use(initReactI18next).init({
         },
 
         products: {
-          title_1: "Наши",
-          title_2: "товары",
+          title_1: "Наша",
+          title_2: "продукция",
         },
 
         news: {
@@ -447,13 +493,13 @@ i18n.use(initReactI18next).init({
         },
 
         partners: {
-          title_1: "Наши партнеры — компании и люди, объединённые общими ценностями и многолетним доверием.",
+          title_1: "Наши партнеры — это компании и люди, связанные общими ценностями и многолетним доверием.",
         },
 
         contacts: {
           title_1: "Контакты",
           title_2: "и информация",
-          title_3: "Напишите ваш вопрос или обращение",
+          title_3: "Напишите свой вопрос или сообщение",
           title_4: "Введите ваше имя",
           send: "Отправить",
           success: "Ваше сообщение успешно отправлено!",
@@ -461,16 +507,17 @@ i18n.use(initReactI18next).init({
           address_label: "Адрес",
           address: "Шайхантахурский район, улица Самарканд Дарвоза, 3/48",
           email_label: "Электронная почта",
-          socials_label: "Социальные сети",
           phone_label: "Телефон",
+          time_label: "Часы работы",
+          working_hours: "Понедельник–суббота, 9:00–18:00"
         },
 
         advantages: {
           title_1: "НАШИ",
           title_2: "ПРЕИМУЩЕСТВА",
           guarantee: {
-            title: "Работаем по официальному договору и даем 10-летнюю гарантию",
-            description: "Каждый проект выполняется по официальному договору с четкими сроками и обязательствами. Мы уверены в качестве и предоставляем 10-летнюю гарантию — на основе надёжных материалов и проверенных технологий.",
+            title: "Работаем на основании подписанного договора и даем гарантию 10 лет",
+            description: "Каждый проект реализуется на основании официального договора с четкими сроками и обязательствами. Мы уверены в качестве и предоставляем 10-летнюю гарантию — это основано на надежных материалах и проверенных технологиях.",
           },
           materials: {
             title: "Премиальные материалы",
@@ -490,20 +537,43 @@ i18n.use(initReactI18next).init({
           clientsLabel: "Количество клиентов",
           experienceTitle: "Путь развития",
           experienceLabel: "Опыт работы",
-          countriesTitle: "Страны-партнеры",
+          countriesTitle: "Страны сотрудничества",
           countriesLabel: "Международные партнеры",
-          specialistsTitle: "Отраслевые специалисты",
+          specialistsTitle: "Специалисты отрасли",
           specialistsLabel: "Официальные сертификаты",
+
+          cooperation: {
+            title: "Условия сотрудничества",
+            termTitle: "Гибкие условия поставки:",
+            termDesc: "Индивидуальные сроки и объемы в зависимости от потребностей клиента.",
+            supportTitle: "Консультации и поддержка:",
+            supportDesc: "Бесплатные консультации и техническая поддержка для всех партнеров.",
+            qualityTitle: "Гарантия качества:",
+            qualityDesc: "При выявлении дефектов производства возврат или обмен товара в течение 30 дней.",
+            discountTitle: "Скидки и бонусы:",
+            discountDesc: "Специальные скидки для постоянных клиентов и бонусы за крупные заказы."
+          },
+          innocare: {
+            title: "Условия работы с INNOCARE",
+            trainingTitle: "Обучение персонала:",
+            trainingDesc: "Бесплатные тренинги и семинары по продукции и технологиям для сотрудников партнеров.",
+            programTitle: "Партнерская программа:",
+            programDesc: "Дополнительный доход за привлечение новых клиентов и расширение сети.",
+            updateTitle: "Постоянные обновления:",
+            updateDesc: "Доступ к новостям и акциям компании через ежемесячную рассылку.",
+            managerTitle: "Личный менеджер:",
+            managerDesc: "Каждому партнеру назначается персональный менеджер для быстрого решения вопросов."
+          },
           purchase: {
             title: "Условия покупки продукции",
             paymentTitle: "Удобная оплата:",
-            paymentDesc: "Оплата наличными, по карте или счёту",
+            paymentDesc: "Оплата наличными, банковской картой или по безналичному расчету.",
             deliveryTitle: "Доставка:",
-            deliveryDesc: "Бесплатная доставка при заказе на сумму выше установленной",
+            deliveryDesc: "Бесплатная доставка при заказе на определенную сумму (уточняется при заказе).",
             guaranteeTitle: "Гарантия на продукцию:",
-            guaranteeDesc: "12 месяцев при соблюдении условий эксплуатации",
-            samplesTitle: "Образцы:",
-            samplesDesc: "Можно заказать образцы перед крупной покупкой",
+            guaranteeDesc: "Гарантия 12 месяцев на всю продукцию при соблюдении условий эксплуатации.",
+            samplesTitle: "Образцы продукции:",
+            samplesDesc: "Возможность заказать тестовые образцы для оценки качества перед крупной покупкой."
           }
         },
 
@@ -538,25 +608,25 @@ i18n.use(initReactI18next).init({
         contact_form: {
           heading: "Свяжитесь с нами",
           short_about: "Кратко о нас",
-          company_description: "ООО «Fasad Master» — компания с 10-летним опытом в фасадных работах. Более 400 объектов по всему Узбекистану, более 90 специалистов. Работаем по официальному договору.",
-          form_heading: "Оставьте свои контакты",
-          thanks: "Спасибо! Мы свяжемся с вами в ближайшее время.",
+          company_description: "ООО «Fasad Master» — компания с 10-летним опытом в сфере фасадных работ. Более 400 объектов по всему Узбекистану, 90+ специалистов. Работаем на основании официального договора.",
+          form_heading: "Оставьте ваши контакты",
+          thanks: "Спасибо! Мы скоро свяжемся с вами.",
           name: "Имя",
           phone: "Телефон",
           send: "Отправить",
-          privacy: "Ваши данные будут храниться конфиденциально.",
+          privacy: "Ваши данные сохраняются в конфиденциальности.",
         },
 
         terms: {
           title: "Условия сотрудничества",
-          flex_delivery_title: "Гибкие условия доставки",
-          flex_delivery_desc: "Индивидуальные сроки и объёмы в зависимости от потребностей клиента.",
+          flex_delivery_title: "Гибкие условия поставки",
+          flex_delivery_desc: "Индивидуальные сроки и объемы в зависимости от потребностей клиента.",
           support_title: "Консультации и поддержка",
-          support_desc: "Бесплатные консультации и техническая поддержка для всех партнёров.",
+          support_desc: "Бесплатные консультации и техническая поддержка для всех партнеров.",
           quality_title: "Гарантия качества",
-          quality_desc: "В случае брака можно вернуть или обменять товар в течение 30 дней.",
+          quality_desc: "При выявлении дефектов возврат или обмен в течение 30 дней.",
           discounts_title: "Скидки и бонусы",
-          discounts_desc: "Специальные скидки для постоянных клиентов и бонусы для крупных заказов.",
+          discounts_desc: "Скидки для постоянных клиентов и бонусы за крупные заказы."
         },
 
         qadam: "шаг",
@@ -577,9 +647,9 @@ i18n.use(initReactI18next).init({
         summ2: "сум/м²",
 
         partners: {
-          title_1: "Наши международные партнёры",
-          description: "Мы сотрудничаем с ведущими международными компаниями в области дерматологии, трихологии и красоты.",
-          list_title: "Список партнёров:",
+          title_1: "Наши международные партнеры",
+          description: "Сотрудничаем с ведущими международными компаниями в области дерматологии, трихологии и красоты.",
+          list_title: "Список партнеров:",
         },
 
         why: {
@@ -587,19 +657,19 @@ i18n.use(initReactI18next).init({
           title_2: "ВЫБИРАЮТ НАС",
           reason1: {
             title: "Опыт",
-            text: "Наши принципы — сертифицированные материалы, строгое соблюдение договоров, справедливая ценовая политика и полная автономность.",
+            text: "Мы используем сертифицированные материалы, строго соблюдаем договоренности, придерживаемся разумной ценовой политики и обеспечиваем полную автономность.",
           },
           reason2: {
-            title: "Качество и надёжность",
-            text: "Надёжные материалы, строгий договор и честная цена — гарантия качества.",
+            title: "Качество и надежность",
+            text: "Надежные материалы, строгий договор и справедливая цена — гарантия качества.",
           },
           reason3: {
             title: "Индивидуальный подход",
-            text: "Мы предлагаем индивидуальные решения, подходящие каждому клиенту.",
+            text: "Предлагаем индивидуальные решения, подходящие каждому клиенту.",
           },
           reason4: {
             title: "Прозрачность",
-            text: "Мы придерживаемся принципа полной прозрачности в ценах и услугах.",
+            text: "Соблюдаем полную прозрачность в ценах и услугах.",
           }
         }
       }

@@ -6,7 +6,7 @@ function CallButton() {
     <div className="call-button-wrapper">
       <div className="call-pulse"></div>
       <a
-        href="tel:+998993062020"
+        href="tel:+998970322332"
         className="call-btn"
         aria-label="Call phone number"
       >

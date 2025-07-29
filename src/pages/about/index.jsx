@@ -3,29 +3,116 @@ import Footer from "../../components/footer/footer";
 import { useTranslation } from "react-i18next";
 import Hero from "../../components/hero/hero";
 import Contacts from "../../components/contacts/contacts";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
+import CountUp from "react-countup";
 
 import "./style.scss";
 
 const AboutPage = () => {
   const { t, i18n } = useTranslation();
-  const [abouts, setAbout] = useState(null);
+  const [abouts, setAbouts] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const sectionRefs = useRef([]);
+  const lastScrollTop = useRef(0);
+
+  const conditions = [
+    {
+      title: "abouts.cooperation.title",
+      items: [
+        ["abouts.cooperation.termTitle", "abouts.cooperation.termDesc"],
+        ["abouts.cooperation.supportTitle", "abouts.cooperation.supportDesc"],
+        ["abouts.cooperation.qualityTitle", "abouts.cooperation.qualityDesc"],
+        ["abouts.cooperation.discountTitle", "abouts.cooperation.discountDesc"],
+      ],
+    },
+    {
+      title: "abouts.innocare.title",
+      items: [
+        ["abouts.innocare.trainingTitle", "abouts.innocare.trainingDesc"],
+        ["abouts.innocare.programTitle", "abouts.innocare.programDesc"],
+        ["abouts.innocare.updateTitle", "abouts.innocare.updateDesc"],
+        ["abouts.innocare.managerTitle", "abouts.innocare.managerDesc"],
+      ],
+    },
+    {
+      title: "abouts.purchase.title",
+      items: [
+        ["abouts.purchase.paymentTitle", "abouts.purchase.paymentDesc"],
+        ["abouts.purchase.deliveryTitle", "abouts.purchase.deliveryDesc"],
+        ["abouts.purchase.guaranteeTitle", "abouts.purchase.guaranteeDesc"],
+        ["abouts.purchase.samplesTitle", "abouts.purchase.samplesDesc"],
+      ],
+    },
+  ];
 
   useEffect(() => {
     axios
       .get("https://back.innocare.uz/abouts")
       .then((res) => {
-        const firstItem = res.data?.data?.[0];
-        if (firstItem) {
-          setAbout(firstItem);
-        }
+        const first = res.data?.data?.[0];
+        if (first) setAbouts(first);
       })
       .catch((err) => {
-        console.error("Error fetching abouts data", err);
+        console.error("Error fetching abouts:", err);
       })
       .finally(() => setLoading(false));
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+
+      sectionRefs.current.forEach((ref, index) => {
+        if (ref) {
+          const rect = ref.getBoundingClientRect();
+          const isVisible =
+            rect.top <= window.innerHeight / 2 &&
+            rect.bottom >= window.innerHeight / 2;
+
+          if (isVisible) {
+            if (scrollTop > lastScrollTop.current) {
+              setActiveIndex(index);
+            } else if (scrollTop < lastScrollTop.current) {
+              setActiveIndex(index);
+            }
+          }
+        }
+      });
+
+      lastScrollTop.current = scrollTop;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.getAttribute("data-index"));
+            setActiveIndex(index);
+          }
+        }
+      },
+      {
+        root: null,
+        threshold: 0.6,
+      }
+    );
+
+    sectionRefs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => {
+      sectionRefs.current.forEach((ref) => {
+        if (ref) observer.unobserve(ref);
+      });
+    };
   }, []);
 
   const getLocalized = (item, key) => {
@@ -33,6 +120,35 @@ const AboutPage = () => {
     const lang = i18n.language || "ru";
     return item[`${key}_${lang}`] || item[`${key}_ru`] || "";
   };
+
+  const statList = abouts
+    ? [
+        {
+          icon: "fa-user-group",
+          title: "abouts.clientsTitle",
+          value: abouts.clients, // Example: "600+"
+          label: "abouts.clientsLabel",
+        },
+        {
+          icon: "fa-briefcase",
+          title: "abouts.experienceTitle",
+          value: abouts.experience, // Example: "2021"
+          label: "abouts.experienceLabel",
+        },
+        {
+          icon: "fa-globe",
+          title: "abouts.countriesTitle",
+          value: abouts.countries,
+          label: "abouts.countriesLabel",
+        },
+        {
+          icon: "fa-id-card-clip",
+          title: "abouts.specialistsTitle",
+          value: abouts.specialists,
+          label: "abouts.specialistsLabel",
+        },
+      ]
+    : [];
 
   return (
     <>
@@ -72,86 +188,107 @@ const AboutPage = () => {
               {t("abouts.statsTitle")}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-                <div className="flex items-center space-x-2 text-sm">
-                  <i className="fa-solid fa-user-group"></i>
-                  <span>{t("abouts.clientsTitle")}</span>
-                </div>
-                <p className="text-4xl font-extrabold">600+</p>
-                <p className="text-sm">{t("abouts.clientsLabel")}</p>
-              </div>
+              {[
+                {
+                  icon: "fa-user-group",
+                  title: "abouts.clientsTitle",
+                  value: "600+",
+                  label: "abouts.clientsLabel",
+                },
+                {
+                  icon: "fa-briefcase",
+                  title: "abouts.experienceTitle",
+                  value: "2021", // bu animatsiyasiz qoladi
+                  label: "abouts.experienceLabel",
+                },
+                {
+                  icon: "fa-globe",
+                  title: "abouts.countriesTitle",
+                  value: "10+",
+                  label: "abouts.countriesLabel",
+                },
+                {
+                  icon: "fa-id-card-clip",
+                  title: "abouts.specialistsTitle",
+                  value: "20+",
+                  label: "abouts.specialistsLabel",
+                },
+              ].map((stat, i) => (
+                <div
+                  key={i}
+                  className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left"
+                >
+                  <div className="flex items-center space-x-2 text-sm">
+                    <i className={`fa-solid ${stat.icon}`}></i>
+                    <span>{t(stat.title)}</span>
+                  </div>
 
-              <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-                <div className="flex items-center space-x-2 text-sm">
-                  <i className="fa-solid fa-briefcase"></i>
-                  <span>{t("abouts.experienceTitle")}</span>
-                </div>
-                <p className="text-4xl font-extrabold">с 2021</p>
-                <p className="text-sm">{t("abouts.experienceLabel")}</p>
-              </div>
+                  <p className="text-4xl font-extrabold">
+                    {(() => {
+                      // Raqam + optional "+" belgisi (masalan, "600+")
+                      const match = stat.value.match(/^(\d+)(\+?)$/);
 
-              <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-                <div className="flex items-center space-x-2 text-sm">
-                  <i className="fa-solid fa-globe"></i>
-                  <span>{t("abouts.countriesTitle")}</span>
-                </div>
-                <p className="text-4xl font-extrabold">10+</p>
-                <p className="text-sm">{t("abouts.countriesLabel")}</p>
-              </div>
+                      // Agar "+" bo‘lsa yoki bu oddiy raqam bo‘lsa, lekin yil emas
+                      if (match) {
+                        const [, number, plus] = match;
 
-              <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-                <div className="flex items-center space-x-2 text-sm">
-                  <i className="fa-solid fa-id-card-clip"></i>
-                  <span>{t("abouts.specialistsTitle")}</span>
+                        // Yil bo‘lsa (masalan, 2021 yoki 2024), animatsiyalamasdan chiqaramiz
+                        const asNumber = parseInt(number);
+                        const currentYear = new Date().getFullYear();
+                        if (asNumber >= 2000 && asNumber <= currentYear + 1) {
+                          return stat.value;
+                        }
+
+                        // Aks holda, animatsiya bilan ko‘rsatamiz
+                        return (
+                          <>
+                            <CountUp end={asNumber} duration={10} />
+                            {plus}
+                          </>
+                        );
+                      }
+
+                      // Agar mos kelmasa (matn bo‘lsa) — to‘g‘ridan-to‘g‘ri ko‘rsatamiz
+                      return stat.value;
+                    })()}
+                  </p>
+
+                  <p className="text-sm">{t(stat.label)}</p>
                 </div>
-                <p className="text-4xl font-extrabold">20+</p>
-                <p className="text-sm">{t("abouts.specialistsLabel")}</p>
-              </div>
+              ))}
             </div>
           </div>
 
-          {/* Scroll Cards */}
-          <div className="h-screen overflow-y-scroll hide-scrollbar snap-y snap-mandatory mb-20">
-            {[1, 2, 3].map((item) => (
-              <div
-                key={item}
-                className="h-screen w-full flex items-center justify-center snap-start p-10"
-              >
-                <div className="bg-[#7A9B55] rounded-2xl p-8 shadow-lg text-white w-full text-start space-y-6">
-                  <h3 className="text-xl font-semibold text-white">
-                    {t("abouts.purchase.title")}
-                  </h3>
-
-                  <div>
-                    <p className="font-semibold">
-                      {t("abouts.purchase.paymentTitle")}
-                    </p>
-                    <p>{t("abouts.purchase.paymentDesc")}</p>
-                  </div>
-
-                  <div>
-                    <p className="font-semibold">
-                      {t("abouts.purchase.deliveryTitle")}
-                    </p>
-                    <p>{t("abouts.purchase.deliveryDesc")}</p>
-                  </div>
-
-                  <div>
-                    <p className="font-semibold">
-                      {t("abouts.purchase.guaranteeTitle")}
-                    </p>
-                    <p>{t("abouts.purchase.guaranteeDesc")}</p>
-                  </div>
-
-                  <div>
-                    <p className="font-semibold">
-                      {t("abouts.purchase.samplesTitle")}
-                    </p>
-                    <p>{t("abouts.purchase.samplesDesc")}</p>
+          {/* Sticky Scroll Cards */}
+          <div className="relative h-[290vh] max-w-[1300px]">
+            {conditions.map((section, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <div
+                  key={index}
+                  data-index={index}
+                  ref={(el) => (sectionRefs.current[index] = el)}
+                  className="sticky top-0 h-screen flex items-center justify-center"
+                  style={{ zIndex: 10 + index }}
+                >
+                  <div
+                    className={` rounded-2xl p-6 md:p-10 max-w-6xl w-full mx-4 space-y-6 transition-all duration-700 ease-in-out text-white ${
+                      isActive
+                        ? "scale-105 opacity-100 bg-[#7A9B55] shadow-2xl"
+                        : "scale-95 opacity-50 bg-[#6a8750] shadow-md"
+                    }`}
+                  >
+                    <h3 className="text-2xl font-bold">{t(section.title)}</h3>
+                    {section.items.map(([titleKey, descKey]) => (
+                      <div key={titleKey}>
+                        <p className="font-semibold">{t(titleKey)}</p>
+                        <p>{t(descKey)}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>
