@@ -72,6 +72,7 @@ const Contacts = () => {
               containerClass="!w-full flex-1"
               buttonClass="!bg-white !border-r !border-[#71914B] !rounded-l h-10"
               specialLabel=""
+              placeholder="+998 (__) ___-__-__"
               inputProps={{ required: true }}
             />
           </div>
@@ -128,7 +129,7 @@ const Contacts = () => {
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-3">
-          <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm  text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Globe className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.socials_label")}
           </p>
@@ -141,7 +142,7 @@ const Contacts = () => {
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
-          <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm  text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Phone className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.phone_label")}
           </p>

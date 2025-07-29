@@ -50,7 +50,7 @@ const News = () => {
           </h3>
 
           <button
-            onClick={() => navigate("/projects")}
+            onClick={() => navigate("/news")}
             className="w-fit text-white px-6 py-2 rounded-full bg-[#71914B] hover:bg-[#72914bb0] transition"
           >
             {t("news.title_2")}

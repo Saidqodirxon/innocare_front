@@ -67,7 +67,8 @@ i18n.use(initReactI18next).init({
           email_label: "Elektron pochta",
           phone_label: "Telefon",
           time_label: "Ish vaqti",
-          working_hours: "Dushanba–shanba, 9:00–18:00"
+          working_hours: "Dushanba–shanba, 9:00–18:00",
+          socials_label: "Ijtimoiy tarmoqlar",
         },
         advantages: {
           title_1: "BIZNING",
@@ -284,7 +285,8 @@ i18n.use(initReactI18next).init({
           email_label: "Email",
           phone_label: "Phone",
           time_label: "Working hours",
-          working_hours: "Monday–Saturday, 9:00–18:00"
+          working_hours: "Monday–Saturday, 9:00–18:00",
+          socials_label: "Social Media",
         },
 
         advantages: {
@@ -509,7 +511,8 @@ i18n.use(initReactI18next).init({
           email_label: "Электронная почта",
           phone_label: "Телефон",
           time_label: "Часы работы",
-          working_hours: "Понедельник–суббота, 9:00–18:00"
+          working_hours: "Понедельник–суббота, 9:00–18:00",
+          socials_label: "Социальные сети",
         },
 
         advantages: {

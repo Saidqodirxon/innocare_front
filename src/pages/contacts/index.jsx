@@ -110,6 +110,7 @@ const ContactsPage = () => {
                 containerClass="!w-full flex-1"
                 buttonClass="!bg-white !border-r !border-[#71914B] !rounded-l h-10"
                 specialLabel=""
+                placeholder="+998 (__) ___-__-__"
                 inputProps={{ required: true }}
               />
             </div>

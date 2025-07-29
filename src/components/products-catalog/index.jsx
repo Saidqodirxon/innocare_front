@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 const ProductsCatalog = () => {
@@ -10,10 +10,10 @@ const ProductsCatalog = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
 
-  const { i18n } = useTranslation();
-  const navigate = useNavigate();
+  const { i18n, t } = useTranslation();
   const currentLang = i18n.language || "ru";
-  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     axios
@@ -26,6 +26,12 @@ const ProductsCatalog = () => {
       .get("https://back.innocare.uz/brands")
       .then(({ data }) => setBrands(data.data));
   }, []);
+
+  // Query param categoryId bor bo‘lsa, uni tanlab o‘rnatamiz
+  useEffect(() => {
+    const catId = searchParams.get("categoryId");
+    if (catId) setSelectedCategory(catId);
+  }, [searchParams]);
 
   const filteredProducts = products.filter((product) => {
     const categoryMatch = selectedCategory
@@ -69,7 +75,10 @@ const ProductsCatalog = () => {
           {categories.map((cat) => (
             <div
               key={cat._id}
-              onClick={() => setSelectedCategory(cat._id)}
+              onClick={() => {
+                setSelectedCategory(cat._id);
+                navigate(`/catalog?categoryId=${cat._id}`);
+              }}
               style={{
                 cursor: "pointer",
                 marginBottom: "8px",
@@ -91,6 +100,7 @@ const ProductsCatalog = () => {
           onClick={() => {
             setSelectedCategory(null);
             setSelectedBrand(null);
+            navigate("/catalog");
           }}
           style={{
             border: "1px solid #71914B",

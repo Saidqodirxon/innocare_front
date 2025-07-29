@@ -1,18 +1,20 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import Contacts from "../../components/contacts/contacts";
 import { FileDown, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import NotFound from "../404page/404";
 
 const ProductsPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [selectedImage, setSelectedImage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
   const descriptionRef = useRef(null);
-  const navigate = useNavigate();
   const dropdownRef = useRef(null);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const { i18n, t } = useTranslation();
@@ -41,11 +43,21 @@ const ProductsPage = () => {
   }, []);
 
   useEffect(() => {
-    axios.get(`https://back.innocare.uz/products/${id}`).then((res) => {
-      const productData = res.data?.data;
-      setProduct(productData);
-      setSelectedImage(productData?.image?.[0]?.url || "");
-    });
+    setLoading(true);
+    setError(false);
+    axios
+      .get(`https://back.innocare.uz/products/${id}`)
+      .then((res) => {
+        const productData = res.data?.data;
+        if (productData) {
+          setProduct(productData);
+          setSelectedImage(productData?.image?.[0]?.url || "");
+        } else {
+          setError(true);
+        }
+      })
+      .catch(() => setError(true))
+      .finally(() => setLoading(false));
   }, [id]);
 
   const getLangText = (field) => {
@@ -56,15 +68,24 @@ const ProductsPage = () => {
     descriptionRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  if (!product) {
+  if (loading) {
     return (
       <>
         <Navbar />
-        <div className="max-w-[1200px] mx-auto px-4 py-10 text-center">
-          <p className="text-xl">{t("loading")}</p>
+        <div className="flex justify-center items-center h-[60vh]">
+          <div className="text-[#7A9B55] text-lg animate-pulse">
+            {t("loading", "Yuklanmoqda")}...
+          </div>
         </div>
-        <Contacts />
         <Footer />
+      </>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <>
+        <NotFound />
       </>
     );
   }
@@ -121,18 +142,18 @@ const ProductsPage = () => {
                   href={product.file.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-[185px] flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
+                  className="w-[185px] flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
                 >
-                  <FileDown size={18} />{" "}
+                  <FileDown size={18} />
                   {t("product.annotation_file", "Yuklab olish")}
                 </a>
               )}
-              <button
-                onClick={() => navigate("/contacts")}
-                className="w-[185px] flex items-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
+              <Link
+                to={"tel:+998970322332"}
+                className="w-[185px] flex items-center justify-center gap-2 px-6 py-2 rounded-full bg-[#7A9B55] text-white hover:bg-[#6E8D4B] transition text-sm font-medium"
               >
-                <Phone size={18} /> {t("contacts.send", "Bog‘lanish")}
-              </button>
+                <Phone size={18} /> {t("Boglanish")}
+              </Link>
             </div>
 
             <div className="flex gap-4 flex-wrap relative">
@@ -146,7 +167,7 @@ const ProductsPage = () => {
               <div ref={dropdownRef} className="relative">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium flex justify-between items-center"
+                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium flex gap-2 items-center justify-center"
                 >
                   {t("BuyurtmaBerish", "Sotib olish")}
                   <span

@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Catalog2 = () => {
   const { i18n, t } = useTranslation();
@@ -15,6 +16,8 @@ const Catalog2 = () => {
 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios
@@ -89,7 +92,10 @@ const Catalog2 = () => {
           >
             {products.map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="border border-[#71914B] rounded-xl flex flex-col justify-between text-center p-4 shadow hover:shadow-lg transition w-full max-w-[400px] mx-auto min-h-[550px]">
+                <Link
+                  to={`/catalog/${item._id}`}
+                  className="border border-[#71914B] rounded-xl flex flex-col justify-between text-center p-4 shadow hover:shadow-lg transition w-full max-w-[400px] mx-auto min-h-[550px]"
+                >
                   <img
                     src={item.img}
                     alt={item.title}
@@ -99,14 +105,20 @@ const Catalog2 = () => {
                     {item.title}
                   </h3>
                   <div className="flex gap-3 justify-center mt-auto">
-                    <button className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition">
+                    <Link
+                      to={`/contacts`}
+                      className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition"
+                    >
                       {t("Boglanish")}
-                    </button>
-                    <button className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition">
+                    </Link>
+                    <Link
+                      to={`/catalog/${item._id}`}
+                      className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition"
+                    >
                       {t("BuyurtmaBerish")}
-                    </button>
+                    </Link>
                   </div>
-                </div>
+                </Link>
               </SwiperSlide>
             ))}
           </Swiper>

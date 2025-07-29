@@ -37,7 +37,6 @@ const Navbar = () => {
     axios
       .get(
         "https://back.innocare.uz/categories"
-
         // ?page[limit]=3
       )
       .then((res) => setCategories(res.data.data))
@@ -77,7 +76,7 @@ const Navbar = () => {
     { key: "about_us", url: "/about" },
     { key: "advantages", url: "/advantages" },
     { key: "partners", url: "/partners" },
-    { key: "catalog", url: "/catalog" },
+    // { key: "catalog", url: "/catalog" },
     { key: "contacts", url: "/contacts" },
     { key: "terms", url: "/terms" },
     { key: "news", url: "/news" },
@@ -237,7 +236,7 @@ const Navbar = () => {
             <div className="absolute left-0 mt-3 bg-white text-black p-3 rounded shadow-lg min-w-[200px] z-[200]">
               {categories.map((cat) => (
                 <Link
-                  to={`/catalog`}
+                  to={`/catalog?categoryId=${cat._id}`}
                   key={cat._id}
                   className="block px-2 py-2 hover:bg-gray-100 rounded text-sm"
                   onClick={() => setIsCatalogOpen(false)}
