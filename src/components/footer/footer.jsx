@@ -1,8 +1,10 @@
 import React from "react";
 import { FaInstagram, FaYoutube, FaFacebook, FaTelegram } from "react-icons/fa";
 import { PhoneCall } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -11,11 +13,9 @@ const Footer = () => {
         {/* Logo + Social */}
         <div>
           <h2 className="text-2xl font-semibold mb-2">Innocare</h2>
-        </div>{" "}
+        </div>
         <div>
-          <p className="text-sm mb-4">
-            INNOCARE — Все товары сертифицированы, услуги лицензированы.
-          </p>
+          <p className="text-sm mb-4">{t("footer.description")}</p>
           <div className="flex space-x-3">
             {[FaTelegram, FaInstagram, FaYoutube, FaFacebook].map((Icon, i) => (
               <a key={i} href="#" className="text-white hover:text-gray-200">
@@ -24,70 +24,70 @@ const Footer = () => {
             ))}
           </div>
         </div>
-        {/* Навигация */}
+
+        {/* Navigation */}
         <div>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline">
-                Наши партнеры
+                {t("footer.links.partners")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline">
-                Наша преймущество
+                {t("footer.links.advantages")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline">
-                Условия сотрудничества
+                {t("footer.links.terms")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline">
-                Контакты
+                {t("footer.links.contacts")}
               </a>
             </li>
           </ul>
         </div>
-        {/* Каталог */}
+
+        {/* Catalog */}
         <div>
           <ul className="space-y-2">
             <li>
               <a href="#" className="hover:underline">
-                Каталог
+                {t("footer.links.catalog")}
               </a>
             </li>
             <li>
               <a href="#" className="hover:underline">
-                Новости
+                {t("footer.links.news")}
               </a>
             </li>
           </ul>
         </div>
-        {/* Контакты и кнопка */}
+
+        {/* Contact info */}
         <div className="flex flex-col gap-2">
-          <div>
-            <p className="text-base">О нас</p>
-            <p className="text-sm">Пн - Суб, 09:00 - 18:00</p>
-          </div>
-          <p className="text-sm">
-            Все товары зарегистрированы, услуги лицензированы
-          </p>
+          {/* <div>
+            <p className="text-base">{t("footer.about.title")}</p>
+            <p className="text-sm">{t("footer.about.schedule")}</p>
+          </div> */}
+          <p className="text-sm">{t("footer.legal")}</p>
           <button className="mt-2 flex items-center gap-2 text-[#71914B] bg-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition w-fit">
             <span className="flex items-center bg-[#71914B] text-white rounded-full p-2">
-              {" "}
-              <PhoneCall size={12} className="" />
-            </span>{" "}
-            Позвонит нам
+              <PhoneCall size={12} />
+            </span>
+            {t("footer.call_us")}
           </button>
         </div>
       </div>
 
-      {/* Footer bottom */}
+      {/* Bottom */}
       <div className="mt-6 border-t border-white/20 pt-4 text-sm text-center md:flex md:justify-between md:items-center">
-        <p>Копирайт: "© {currentYear} Innocare. Все права защищены."</p>
+        <p>{t("footer.copyright", { year: currentYear })}</p>
         <p className="mt-2 md:mt-0">
-          Разработала команда{" "}
+          {t("footer.developed_by")}{" "}
           <a
             href="https://supersite.uz"
             target="_blank"

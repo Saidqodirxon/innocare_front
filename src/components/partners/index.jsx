@@ -26,12 +26,10 @@ const Partners = () => {
     <div className="max-w-7xl mx-auto px-4 py-16">
       <div className="text-start space-y-4 mb-10">
         <span className="text-sm text-[#71914B] border border-[#71914B] rounded-full px-4 py-1">
-          {t("Партнёры")}
+          {t("links.partners")}
         </span>
         <h3 className="text-xl md:text-2xl font-medium text-gray-800">
-          {t(
-            "Наши партнёры — компании и люди, с которыми нас объединяют общие ценности и многолетнее сотрудничество"
-          )}
+          {t("partners.title_1")}
         </h3>
       </div>
 

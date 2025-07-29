@@ -27,7 +27,7 @@ const News = () => {
         alt={getLocalizedTitle(item)}
         className="w-full h-40 object-cover p-3 rounded-[20px]"
       />
-      <div className="p-3 text-sm">
+      <div className="p-3 text-[16px]">
         <p className="line-clamp-2">{getLocalizedTitle(item)}</p>
       </div>
     </div>
@@ -42,18 +42,18 @@ const News = () => {
             onClick={() => navigate("/projects")}
             className="w-fit text-sm text-[#71914B] rounded-full border border-[#71914B] px-4 py-1 hover:bg-[#72914B] hover:text-white transition"
           >
-            {t("Новости")}
+            {t("links.news")}
           </button>
 
-          <h3 className="text-2xl font-semibold leading-snug">
-            {t("Оборудование и решения для косметологии и дерматологии")}
+          <h3 className="text-2xl max-w-[500px] font-semibold leading-snug">
+            {t("news.title_1")}{" "}
           </h3>
 
           <button
             onClick={() => navigate("/projects")}
             className="w-fit text-white px-6 py-2 rounded-full bg-[#71914B] hover:bg-[#72914bb0] transition"
           >
-            {t("Все новости")}
+            {t("news.title_2")}
           </button>
         </div>
 

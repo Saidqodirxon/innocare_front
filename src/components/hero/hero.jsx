@@ -73,7 +73,7 @@ function Hero() {
                     href="contacts"
                     className="inline-block text-[#71914B] bg-white hover:text-white hover:bg-[#71914B] px-3 py-2 md:px-8 md:py-3 rounded-lg transition-colors duration-300"
                   >
-                    {t("Оставить заявку")}
+                    {t("Qoldirish")}
                   </a>
                 </div>
               </div>

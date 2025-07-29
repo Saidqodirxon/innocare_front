@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const ProductsCatalog = () => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [brands, setBrands] = useState([]);
-
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedBrand, setSelectedBrand] = useState(null);
+
+  const { i18n } = useTranslation();
   const navigate = useNavigate();
+  const currentLang = i18n.language || "ru";
 
   useEffect(() => {
     axios
@@ -31,17 +34,22 @@ const ProductsCatalog = () => {
     return categoryMatch && brandMatch;
   });
 
+  const getLocalized = (obj, field) =>
+    obj?.[`${field}_${currentLang}`] || obj?.[`${field}_ru`] || "";
+
   return (
     <div style={{ display: "flex", minHeight: "100vh", background: "#f9f9f9" }}>
       {/* Sidebar */}
       <div
         style={{
-          width: "220px",
+          maxWidth: "500px",
+          minWidth: "300px",
           background: "#fff",
           borderRight: "1px solid #ddd",
           padding: "20px",
           boxSizing: "border-box",
         }}
+        className="text-[16px]"
       >
         <button
           style={{
@@ -51,7 +59,6 @@ const ProductsCatalog = () => {
             padding: "12px",
             width: "100%",
             borderRadius: "4px",
-            fontWeight: "bold",
             marginBottom: "15px",
           }}
         >
@@ -72,46 +79,12 @@ const ProductsCatalog = () => {
                 fontWeight: selectedCategory === cat._id ? "bold" : "normal",
                 color: "#333",
               }}
+              className="text-[16px] uppercase"
             >
-              {cat.name_ru}
+              {getLocalized(cat, "name")}
             </div>
           ))}
         </div>
-
-        {/* <button
-          style={{
-            background: "#71914B",
-            color: "#fff",
-            border: "none",
-            padding: "12px",
-            width: "100%",
-            borderRadius: "4px",
-            fontWeight: "bold",
-            marginBottom: "15px",
-          }}
-        >
-          Бренд
-        </button> */}
-        {/* <div style={{ fontSize: "14px", marginBottom: "20px" }}>
-          {brands.map((brand) => (
-            <div
-              key={brand._id}
-              onClick={() => setSelectedBrand(brand._id)}
-              style={{
-                cursor: "pointer",
-                marginBottom: "8px",
-                padding: "8px 12px",
-                borderRadius: "4px",
-                background:
-                  selectedBrand === brand._id ? "#e8f5e9" : "transparent",
-                fontWeight: selectedBrand === brand._id ? "bold" : "normal",
-                color: "#333",
-              }}
-            >
-              {brand.name}
-            </div>
-          ))}
-        </div> */}
 
         <button
           onClick={() => {
@@ -155,15 +128,11 @@ const ProductsCatalog = () => {
               display: "flex",
               flexDirection: "column",
               textAlign: "center",
-              height: "300px",
-              minHeight: "300px",
-              maxHeight: "500px",
             }}
           >
             <div
               style={{
                 padding: "15px",
-                // height: "250px",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -171,9 +140,9 @@ const ProductsCatalog = () => {
             >
               <img
                 src={product.image?.[0]?.url}
-                alt={product.name_uz}
+                alt={getLocalized(product, "name")}
                 style={{
-                  maxHeight: "200px",
+                  maxHeight: "400px",
                   maxWidth: "100%",
                   objectFit: "contain",
                 }}
@@ -182,7 +151,7 @@ const ProductsCatalog = () => {
             <div style={{ padding: "0 10px 15px" }}>
               <h4
                 style={{
-                  fontSize: "14px",
+                  fontSize: "20px",
                   fontWeight: "600",
                   marginBottom: "6px",
                   color: "#222",
@@ -191,18 +160,17 @@ const ProductsCatalog = () => {
                   whiteSpace: "nowrap",
                 }}
               >
-                {product.name_uz || product.name_ru}
+                {getLocalized(product, "name")}
               </h4>
               <p
                 style={{
-                  fontSize: "12px",
-                  color: "#777",
+                  fontSize: "14px",
                   overflow: "hidden",
                   textOverflow: "ellipsis",
                   whiteSpace: "nowrap",
                 }}
               >
-                {product.description_uz || "Барча тери тури учун идеал."}
+                {getLocalized(product, "description")}
               </p>
             </div>
           </div>

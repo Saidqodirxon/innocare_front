@@ -1,5 +1,11 @@
 import React from "react";
-import { CheckCircle, FileText, ClipboardList, Users } from "lucide-react";
+import {
+  CheckCircle,
+  FileText,
+  ClipboardList,
+  Users,
+  BaggageClaimIcon,
+} from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const WhyChooseUs = () => {
@@ -7,7 +13,7 @@ const WhyChooseUs = () => {
 
   const reasons = [
     {
-      icon: <ClipboardList className="text-[#71914B] w-6 h-6" />,
+      icon: <BaggageClaimIcon className="text-[#71914B] w-6 h-6" />,
       title: t("why.reason1.title"),
       text: t("why.reason1.text"),
     },
@@ -15,7 +21,7 @@ const WhyChooseUs = () => {
       image: "/why/img1.png",
     },
     {
-      icon: <Users className="text-[#71914B] w-6 h-6" />,
+      icon: <Users className="text-[#71914B] w-6 h-6 mt-2" />,
       title: t("why.reason2.title"),
       text: t("why.reason2.text"),
     },
@@ -57,15 +63,15 @@ const WhyChooseUs = () => {
               <img
                 src={item.image}
                 alt={t("why.imageAlt")}
-                className="w-full object-cover"
+                className="w-full object-contain mt-2"
               />
             ) : (
-              <div className="flex flex-col justify-center items-center gap-3 p-5 text-center flex-grow">
+              <div className="flex flex-col justify-start items-start gap-6 p-5 flex-grow">
                 {item.icon}
-                <h3 className="text-md font-semibold text-gray-800">
+                <h3 className="text-2xl font-semibold text-gray-800">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-600">{item.text}</p>
+                <p className="text-md">{item.text}</p>
               </div>
             )}
           </div>

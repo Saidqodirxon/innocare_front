@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
 import {
@@ -37,27 +37,28 @@ const Contacts = () => {
     e.preventDefault();
     try {
       await axios.post("https://back.innocare.uz/contacts", formData);
-      toast.success(t("contacts.success") || "Muvaffaqiyatli yuborildi!");
+      toast.success(t("contacts.success"));
       setFormData({ name: "", phone: "", message: "" });
     } catch (error) {
-      toast.error(t("contacts.error") || "Xatolik yuz berdi");
+      toast.error(t("contacts.error"));
     }
   };
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
       <h2 className="text-2xl md:text-3xl font-semibold mb-8">
-        <span className="text-[#71914B]">Контакты</span> и обратная связь
+        <span className="text-[#71914B]">{t("contacts.title_1")}</span>{" "}
+        {t("contacts.title_2")}
       </h2>
 
       {/* Form & Map */}
-      <div className="flex flex-col md:flex-row gap-10 mb-12 items-start jus">
+      <div className="flex flex-col md:flex-row gap-10 mb-12 items-start">
         <form onSubmit={handleSubmit} className="flex-1 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4">
             <input
               type="text"
               name="name"
-              placeholder="Ваша имя *"
+              placeholder={t("contacts.title_4")}
               value={formData.name}
               onChange={handleChange}
               required
@@ -77,7 +78,7 @@ const Contacts = () => {
 
           <textarea
             name="message"
-            placeholder="Опишите суть Вашего вопроса или обращения"
+            placeholder={t("contacts.title_3")}
             value={formData.message}
             onChange={handleChange}
             rows={7}
@@ -89,7 +90,7 @@ const Contacts = () => {
             className="bg-[#71914B] hover:bg-[#72914bb0] text-white px-8 py-2 rounded-full transition flex items-center gap-2"
           >
             <Send className="w-4 h-4" />
-            Отправить
+            {t("contacts.send")}
           </button>
         </form>
 
@@ -109,17 +110,17 @@ const Contacts = () => {
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
           <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <MapPin className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
-            Адрес
+            {t("contacts.address_label")}
           </p>
           <p className="text-[13px] text-[#71914B] font-semibold">
-            Шайхонтохурский район, улица Самарканд Дарвоза, 3/48
+            {t("contacts.address")}
           </p>
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
           <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Mail className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
-            Почта
+            {t("contacts.email_label")}
           </p>
           <p className="text-[13px] text-[#71914B] font-semibold">
             Supersite.uz@gmail.com
@@ -129,7 +130,7 @@ const Contacts = () => {
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-3">
           <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Globe className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
-            Соц. сети
+            {t("contacts.socials_label")}
           </p>
           <div className="flex gap-3 text-[#71914B] text-xl">
             <FaTelegramPlane />
@@ -142,7 +143,7 @@ const Contacts = () => {
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
           <p className="flex items-center gap-2 text-sm font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Phone className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
-            Телефон
+            {t("contacts.phone_label")}
           </p>
           <p className="text-[13px] text-[#71914B] font-semibold">
             +998 (97) 032-23-32

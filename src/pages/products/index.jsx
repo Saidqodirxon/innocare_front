@@ -157,16 +157,16 @@ const ProductsPage = () => {
             <div className="flex gap-4 flex-wrap relative">
               <button
                 onClick={scrollToDescription}
-                className="w-[180px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
+                className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
               >
                 Узнать подробнее
               </button>
 
               {/* Dropdown */}
-              <div ref={dropdownRef} className="flex gap-4 flex-wrap relative">
+              <div ref={dropdownRef} className="flex g;6ap-4 flex-wrap relative">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-[180px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
+                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium"
                 >
                   Купить
                   <span
@@ -211,6 +211,18 @@ const ProductsPage = () => {
             </div>
           </div>
         </div>
+        {/* Right Block */}
+        <div className="flex flex-col w-full lg:w-2/3 space-y-4">
+          <div ref={descriptionRef} className="space-y-4">
+            <h2 className="text-2xl font-bold text-[#7bb44d]">
+              Описание товара
+            </h2>
+            <p className="text-gray-700 leading-relaxed whitespace-pre-line">
+              {getLangText("about")}
+            </p>
+          </div>
+        </div>
+
         {/* Video Section */}
         {product?.video && product?.video !== "нет" && (
           <div className="w-full aspect-video rounded-xl overflow-hidden">

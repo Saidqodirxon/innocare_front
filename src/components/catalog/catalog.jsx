@@ -37,8 +37,8 @@ const Catalog = () => {
   return (
     <div className="py-12 px-4 md:px-16 bg-white" id="services">
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">
-        {t("why.title_1")}{" "}
-        <span className="text-[#71914B]">{t("why.title_2")}</span>
+        {t("products.title_1")}{" "}
+        <span className="text-[#71914B]">{t("products.title_2")}</span>
       </h2>
 
       <div className="relative">
@@ -93,17 +93,17 @@ const Catalog = () => {
                   <img
                     src={item.img}
                     alt={item.title}
-                    className="w-full h-[400px] object-cover rounded-lg mb-4"
+                    className="w-full h-[400px] object-contain rounded-lg mb-4"
                   />
                   <h3 className="text-md font-semibold text-gray-800 mb-4 line-clamp-1">
                     {item.title}
                   </h3>
                   <div className="flex gap-3 justify-center mt-auto">
                     <button className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition">
-                      {t("Подробнее")}
+                      {t("Boglanish")}
                     </button>
                     <button className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition">
-                      {t("Заказать")}
+                      {t("BuyurtmaBerish")}
                     </button>
                   </div>
                 </div>

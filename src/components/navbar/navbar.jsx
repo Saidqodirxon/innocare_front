@@ -217,23 +217,23 @@ const Navbar = () => {
             onClick={() => setIsCatalogOpen((prev) => !prev)}
             className="flex items-center gap-2 font-semibold"
           >
-            {isCatalogOpen ? (
+            {/* {isCatalogOpen ? (
               <>
                 <img src={xIcon} alt="close" className="w-5 h-5" />{" "}
                 {t("links.catalog") || "Каталог"}
               </>
-            ) : (
-              <>
-                <Menu /> {t("links.catalog") || "Каталог"}
-              </>
-            )}
+            ) : ( */}
+            <>
+              <Menu /> {t("links.catalog") || "Каталог"}
+            </>
+            {/* )} */}
           </button>
 
           {isCatalogOpen && (
             <div className="absolute left-0 mt-3 bg-white text-black p-3 rounded shadow-lg min-w-[200px] z-[200]">
               {categories.map((cat) => (
                 <Link
-                  to={`/category/${cat._id}`}
+                  to={`/catalog`}
                   key={cat._id}
                   className="block px-2 py-2 hover:bg-gray-100 rounded text-sm"
                   onClick={() => setIsCatalogOpen(false)}

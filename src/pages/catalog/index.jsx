@@ -13,7 +13,7 @@ const CatalogPage = () => {
     <>
       <Navbar />
       <ProductsCatalog />
-      <Advantages />
+      {/* <Advantages /> */}
       <Contacts />
       <Footer />
     </>

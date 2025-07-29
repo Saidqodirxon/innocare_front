@@ -9,8 +9,8 @@ import axios from "axios";
 import "./style.scss";
 
 const AboutPage = () => {
-  const { i18n } = useTranslation();
-  const [about, setAbout] = useState(null);
+  const { t, i18n } = useTranslation();
+  const [abouts, setAbout] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const AboutPage = () => {
         }
       })
       .catch((err) => {
-        console.error("Error fetching about data", err);
+        console.error("Error fetching abouts data", err);
       })
       .finally(() => setLoading(false));
   }, []);
@@ -45,21 +45,21 @@ const AboutPage = () => {
           <div className="flex flex-col md:flex-row gap-8 items-center mb-10 w-full">
             <div className="w-full md:w-[50%]">
               {loading ? (
-                <p>Загрузка...</p>
+                <p>{t("loading")}</p>
               ) : (
                 <>
                   <h2 className="text-2xl font-bold mb-6 leading-snug text-gray-900">
-                    {getLocalized(about, "name")}
+                    {getLocalized(abouts, "name")}
                   </h2>
                   <p className="text-gray-700 text-md leading-relaxed whitespace-pre-line">
-                    {getLocalized(about, "description")}
+                    {getLocalized(abouts, "description")}
                   </p>
                 </>
               )}
             </div>
             <div className="w-full md:w-[45%]">
               <img
-                src="/about/img1.png"
+                src="/abouts/img1.png"
                 alt="company"
                 className="w-full rounded-2xl shadow-md"
               />
@@ -69,48 +69,48 @@ const AboutPage = () => {
           {/* Stats */}
           <div className="max-w-[1300px] mx-auto px-5 mb-12">
             <h2 className="text-3xl md:text-2xl font-bold mb-10">
-              О нас в цифрах
+              {t("abouts.statsTitle")}
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
                 <div className="flex items-center space-x-2 text-sm">
                   <i className="fa-solid fa-user-group"></i>
-                  <span>Клиентов за годы работы</span>
+                  <span>{t("abouts.clientsTitle")}</span>
                 </div>
                 <p className="text-4xl font-extrabold">600+</p>
-                <p className="text-sm">Количество клиентов</p>
+                <p className="text-sm">{t("abouts.clientsLabel")}</p>
               </div>
 
               <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
                 <div className="flex items-center space-x-2 text-sm">
                   <i className="fa-solid fa-briefcase"></i>
-                  <span>Путь развития</span>
+                  <span>{t("abouts.experienceTitle")}</span>
                 </div>
                 <p className="text-4xl font-extrabold">с 2021</p>
-                <p className="text-sm">Опыт работы</p>
+                <p className="text-sm">{t("abouts.experienceLabel")}</p>
               </div>
 
               <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
                 <div className="flex items-center space-x-2 text-sm">
                   <i className="fa-solid fa-globe"></i>
-                  <span>Страны сотрудничество</span>
+                  <span>{t("abouts.countriesTitle")}</span>
                 </div>
                 <p className="text-4xl font-extrabold">10+</p>
-                <p className="text-sm">Международные Партнёры</p>
+                <p className="text-sm">{t("abouts.countriesLabel")}</p>
               </div>
 
               <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
                 <div className="flex items-center space-x-2 text-sm">
                   <i className="fa-solid fa-id-card-clip"></i>
-                  <span>Специалисты в этой сфере</span>
+                  <span>{t("abouts.specialistsTitle")}</span>
                 </div>
                 <p className="text-4xl font-extrabold">20+</p>
-                <p className="text-sm">Официальных сертификатов</p>
+                <p className="text-sm">{t("abouts.specialistsLabel")}</p>
               </div>
             </div>
           </div>
 
-          {/* Scroll cards */}
+          {/* Scroll Cards */}
           <div className="h-screen overflow-y-scroll hide-scrollbar snap-y snap-mandatory mb-20">
             {[1, 2, 3].map((item) => (
               <div
@@ -119,39 +119,35 @@ const AboutPage = () => {
               >
                 <div className="bg-[#7A9B55] rounded-2xl p-8 shadow-lg text-white w-full text-start space-y-6">
                   <h3 className="text-xl font-semibold text-white">
-                    Условия покупки товаров
+                    {t("abouts.purchase.title")}
                   </h3>
 
                   <div>
-                    <p className="font-semibold">Удобная оплата:</p>
-                    <p>
-                      Возможность оплаты наличными, банковской картой или по
-                      безналичному расчёту
+                    <p className="font-semibold">
+                      {t("abouts.purchase.paymentTitle")}
                     </p>
+                    <p>{t("abouts.purchase.paymentDesc")}</p>
                   </div>
 
                   <div>
-                    <p className="font-semibold">Доставка:</p>
-                    <p>
-                      Бесплатная доставка при заказе от определённой суммы
-                      (уточняется при заказе).
+                    <p className="font-semibold">
+                      {t("abouts.purchase.deliveryTitle")}
                     </p>
+                    <p>{t("abouts.purchase.deliveryDesc")}</p>
                   </div>
 
                   <div>
-                    <p className="font-semibold">Гарантия на продукцию:</p>
-                    <p>
-                      12-месячная гарантия на все товары при соблюдении условий
-                      эксплуатации.
+                    <p className="font-semibold">
+                      {t("abouts.purchase.guaranteeTitle")}
                     </p>
+                    <p>{t("abouts.purchase.guaranteeDesc")}</p>
                   </div>
 
                   <div>
-                    <p className="font-semibold">Пробные образцы:</p>
-                    <p>
-                      Возможность заказа тестовых образцов для оценки качества
-                      перед крупной покупкой.
+                    <p className="font-semibold">
+                      {t("abouts.purchase.samplesTitle")}
                     </p>
+                    <p>{t("abouts.purchase.samplesDesc")}</p>
                   </div>
                 </div>
               </div>

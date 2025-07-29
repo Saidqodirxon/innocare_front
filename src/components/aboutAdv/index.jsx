@@ -1,111 +1,200 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { Users, CalendarCheck, Globe, ShieldCheck } from "lucide-react";
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
 
-function AboutAdv() {
-  const { t } = useTranslation();
+i18n.use(initReactI18next).init({
+  lng: localStorage.getItem("i18nextLng") || "uz",
+  fallbackLng: "uz",
+  interpolation: {
+    escapeValue: false,
+  },
+  resources: {
+    uz: {
+      translation: {
+        loading: "Yuklanmoqda...",
+        Boglanish: "Bog‘lanish",
+        Qoldirish: "Ariza qoldirish",
+        Batafsil: "Batafsil",
+        BuyurtmaBerish: "Buyurtma berish",
+        Jonatish: "Yuborish",
 
-  return (
-    <div className="max-w-7xl mx-auto px-4 py-12 space-y-20">
-      {/* Section 1: Text right, Image left */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div>
-          <img
-            src="/advantages/img1.png"
-            alt="Косметологическое оборудование"
-            className="rounded-xl w-full h-auto object-cover shadow-md"
-          />
-        </div>
-        <div className="text-gray-800 space-y-4">
-          <h2 className="text-xl md:text-2xl font-semibold">
-            Наши преимущества
-          </h2>
-          <p className="text-sm leading-relaxed">
-            Компания INNOCARE — Dermato-Cosmetological Solutions предоставляет
-            профессиональные услуги по гарантийному и постгарантийному
-            обслуживанию косметологического оборудования. Инженеры
-            авторизованного сервисного центра INNOCARE проходят регулярное
-            обучение на заводах наших партнёров в Южной Корее. Технические
-            специалисты компаний-производителей, таких как Lutronic и Classys,
-            обеспечивают нас постоянной информационной и технической поддержкой.
-            Благодаря этому наши клиенты могут рассчитывать на качественный,
-            надёжный и своевременный сервис.
-          </p>
-        </div>
-      </div>
+        navbar: {
+          logoAlt: "Logotip",
+          phoneNumber: "+998 99 306 20 20",
+          languageAlt: "Joriy til",
+          lang: {
+            uz: "O‘zbek",
+            ru: "Rus",
+            en: "Ingliz",
+          },
+        },
 
-      {/* Section 2: Text left, Image right */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-        <div className="text-gray-800 space-y-4">
-          <h2 className="text-xl md:text-2xl font-semibold">
-            Знакомство с{" "}
-            <span className="text-[#71914B]">аппаратной медициной</span>
-          </h2>
-          <p className="text-sm leading-relaxed">
-            Компания INNOCARE — Dermato-Cosmetological Solutions предлагает
-            возможность ближе познакомиться с современными технологиями в
-            области аппаратной эстетической медицины. Мы представляем новейшие
-            разработки и методики, которые позволяют специалистам достигать
-            высоких результатов в своей практике. Такой подход помогает быть в
-            курсе актуальных решений и трендов в индустрии красоты и здоровья.
-          </p>
-        </div>
-        <div>
-          <img
-            src="/advantages/img2.png"
-            alt="Оборудование INNOCARE"
-            className="rounded-xl w-full h-auto object-cover shadow-md"
-          />
-        </div>
-      </div>
+        links: {
+          home: "Bosh sahifa",
+          about_us: "Kompaniya haqida",
+          portfolio: "Portfel",
+          services: "Xizmatlar",
+          contacts: "Aloqa",
+          terms: "Shartlar",
+          news: "Yangiliklar",
+          partners: "Hamkorlar",
+          catalog: "Katalog",
+          advantages: "Afzalliklar",
+        },
 
-      {/* Stats Section */}
-      <div className="max-w-[1300px] mx-auto px-5 mb-12">
-        <h2 className="text-3xl md:text-3xl font-bold mb-10">О нас в цифрах</h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {/* 1 */}
-          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-            <div className="flex items-center space-x-2 text-sm">
-              <i className="fa-solid fa-user-group"></i>
-              <span>Клиентов за годы работы</span>
-            </div>
-            <p className="text-4xl font-extrabold">600+</p>
-            <p className="text-sm">Количество клиентов</p>
-          </div>
+        products: {
+          title_1: "Mahsulotlarimiz",
+          title_2: "assortimenti",
+        },
 
-          {/* 2 */}
-          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-            <div className="flex items-center space-x-2 text-sm">
-              <i className="fa-solid fa-briefcase"></i>
-              <span>Путь развития</span>
-            </div>
-            <p className="text-4xl font-extrabold">с 2021</p>
-            <p className="text-sm">Опыт работы</p>
-          </div>
+        news: {
+          title_1:
+            "Kosmetologiya va dermatologiya uchun uskunalar va yechimlar",
+          title_2: "Barcha yangiliklar",
+        },
 
-          {/* 3 */}
-          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-            <div className="flex items-center space-x-2 text-sm">
-              <i className="fa-solid fa-globe"></i>
-              <span>Страны сотрудничество</span>
-            </div>
-            <p className="text-4xl font-extrabold">10+</p>
-            <p className="text-sm">Международные Партнёры</p>
-          </div>
+        partners: {
+          title_1:
+            "Bizning hamkorlarimiz — umumiy qadriyatlar va ko‘p yillik ishonch asosida bog‘langan kompaniyalar va insonlar.",
+        },
 
-          {/* 4 */}
-          <div className="bg-[#7A9B55] rounded-xl text-white p-6 space-y-3 text-left">
-            <div className="flex items-center space-x-2 text-sm">
-              <i className="fa-solid fa-id-card-clip"></i>
-              <span>Специалисты в этой сфере</span>
-            </div>
-            <p className="text-4xl font-extrabold">20+</p>
-            <p className="text-sm">Официальных сертификатов</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+        contacts: {
+          title_1: "Aloqa",
+          title_2: "va ma'lumotlar",
+          title_3: "Savolingiz yoki murojaatingizni yozing",
+          title_4: "Ismingizni kiriting",
+          send: "Yuborish",
+          success: "Murojaatingiz muvaffaqiyatli yuborildi!",
+          error: "Yuborishda xatolik yuz berdi!",
+          address_label: "Manzil",
+          address: "Shayxontohur tumani, Samarqand Darvoza ko‘chasi, 3/48",
+          email_label: "Elektron pochta",
+          socials_label: "Ijtimoiy tarmoqlar",
+          phone_label: "Telefon",
+        },
 
-export default AboutAdv;
+        advantages: {
+          title_1: "BIZNING",
+          title_2: "AFZALLIKLARIMIZ",
+          guarantee: {
+            title:
+              "Muhri qo‘yilgan shartnoma asosida ishlaymiz va 10 yillik kafolat beramiz",
+            description:
+              "Har bir loyiha aniq muddatlar va majburiyatlar ko‘rsatilgan rasmiy shartnoma asosida bajariladi. Biz sifatga ishonamiz va 10 yillik kafolat beramiz — bu ishonchli materiallar va sinovdan o‘tgan texnologiyalarga tayanadi.",
+          },
+          materials: {
+            title: "Premium materiallar",
+            description:
+              "Tabiiy kvartsli travertin va sifatli yopishtiruvchi ishlatiladi.",
+          },
+          price: {
+            title: "Shaffof narx",
+            description: "Yashirin to‘lovlarsiz adolatli narx taklif qilamiz.",
+          },
+          button: "Batafsil",
+          imageAlt: "Afzalliklar",
+        },
+
+        abouts: {
+          statsTitle: "Biz haqimizda raqamlarda",
+          clientsTitle: "Yillar davomida mijozlar",
+          clientsLabel: "Mijozlar soni",
+          experienceTitle: "Rivojlanish yo‘li",
+          experienceLabel: "Ish tajribasi",
+          countriesTitle: "Hamkorlik mamlakatlari",
+          countriesLabel: "Xalqaro hamkorlar",
+          specialistsTitle: "Soha mutaxassislari",
+          specialistsLabel: "Rasmiy sertifikatlar",
+          purchase: {
+            title: "Mahsulot xarid qilish shartlari",
+            paymentTitle: "Qulay to‘lov:",
+            paymentDesc: "Naqd, karta yoki hisob orqali to‘lov imkoniyati",
+            deliveryTitle: "Yetkazib berish:",
+            deliveryDesc:
+              "Belgilangan summadan ortiq buyurtmalarga bepul yetkazib berish",
+            guaranteeTitle: "Mahsulot kafolati:",
+            guaranteeDesc:
+              "Ekspluatatsiya shartlariga amal qilinganda 12 oylik kafolat",
+            samplesTitle: "Sinov namunalar:",
+            samplesDesc:
+              "Yirik xarid oldidan sifatni tekshirish uchun namunalar buyurtma qilish mumkin",
+          },
+        },
+
+        footer: {
+          description:
+            "INNOCARE — Barcha mahsulotlar sertifikatlangan, xizmatlar litsenziyalangan.",
+          links: {
+            partners: "Hamkorlar",
+            advantages: "Afzalliklarimiz",
+            terms: "Hamkorlik shartlari",
+            contacts: "Aloqa",
+            catalog: "Katalog",
+            news: "Yangiliklar",
+          },
+          legal:
+            "Barcha mahsulotlar ro‘yxatdan o‘tgan, xizmatlar litsenziyalangan.",
+          call_us: "Bizga qo‘ng‘iroq qiling",
+          copyright:
+            "Mualliflik huquqi © {{year}} Innocare. Barcha huquqlar himoyalangan.",
+          developed_by: "Ishlab chiqqan jamoa",
+        },
+
+        notfound: {
+          imageAlt: "404 xatolik",
+          title: "Sahifa topilmadi",
+          button: "Bosh sahifa",
+        },
+
+        catalog: {
+          title_1: "BIZNING",
+          title_2: "XIZMATLARIMIZ",
+          more: "Batafsil",
+        },
+
+        contact_form: {
+          heading: "Biz bilan bog‘laning",
+          short_about: "Qisqacha biz haqimizda",
+          company_description:
+            "«Fasad Master» MCHJ — 10 yillik tajribaga ega fasad ishlari bo‘yicha kompaniya. Butun O‘zbekiston bo‘ylab 400+ obyekt, 90+ mutaxassis. Rasmiy shartnoma asosida ishlaymiz.",
+          form_heading: "Kontaktlaringizni qoldiring",
+          thanks: "Rahmat! Tez orada siz bilan bog‘lanamiz.",
+          name: "Ism",
+          phone: "Telefon",
+          send: "Yuborish",
+          privacy: "Ma’lumotlaringiz maxfiy saqlanadi.",
+        },
+
+        otziv: {
+          title_1: "Mijozlarimiz",
+          title_2: "fikrlari",
+        },
+
+        narxi: "Narxi",
+        summ2: "so‘m/m²",
+
+        why: {
+          title_1: "NEGA",
+          title_2: "BIZNI TANLAYDI",
+          reason1: {
+            title: "Tajriba",
+            text: "Bizning qoidalarimizga ko‘ra, sertifikatlangan materiallardan foydalanish, shartnomalarga qat’iy rioya qilish, oqilona narx siyosati va to‘liq o‘z-o‘zini ta’minlash tamoyiliga asoslanamiz.",
+          },
+          reason2: {
+            title: "Sifat va ishonchlilik",
+            text: "Ishonchli materiallar, qat’iy shartnoma va adolatli narx — sifat kafolati.",
+          },
+          reason3: {
+            title: "Individual yondashuv",
+            text: "Har bir mijozga mos individual yechimlarni taklif qilamiz.",
+          },
+          reason4: {
+            title: "Shaffoflik",
+            text: "Narxlar va xizmatlarda to‘liq shaffoflik tamoyiliga amal qilamiz.",
+          },
+        },
+      },
+    },
+  },
+});
+
+export default i18n;
