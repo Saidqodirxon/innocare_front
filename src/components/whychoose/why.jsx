@@ -63,7 +63,7 @@ const WhyChooseUs = () => {
               <img
                 src={item.image}
                 alt={t("why.imageAlt")}
-                className="w-full object-contain mt-2"
+                className="!w-[100%] !h-full object-cover"
               />
             ) : (
               <div className="flex flex-col justify-start items-start gap-6 p-5 flex-grow">
