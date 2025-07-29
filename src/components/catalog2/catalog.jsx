@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 import { useTranslation } from "react-i18next";
 import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
 
-const Catalog = () => {
+const Catalog2 = () => {
   const { i18n, t } = useTranslation();
   const [products, setProducts] = useState([]);
   const [swiperReady, setSwiperReady] = useState(false);
@@ -18,7 +18,7 @@ const Catalog = () => {
 
   useEffect(() => {
     axios
-      .get("https://back.innocare.uz/products?is_view=true&is_visible=true")
+      .get("https://back.innocare.uz/products?is_view=false&is_visible=true")
       .then((res) => {
         const allProducts = res.data.data.map((product) => ({
           ...product,
@@ -116,4 +116,4 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+export default Catalog2;

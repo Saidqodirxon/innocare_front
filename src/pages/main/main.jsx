@@ -13,6 +13,7 @@ import AboutMain from "../../components/about-main/about";
 import Testimonials from "../../components/otziv";
 import ProductCarousel from "../../components/catalog/catalog";
 import News from "../../components/news/news";
+import Catalog2 from "../../components/catalog2/catalog";
 
 const Main = () => {
   return (
@@ -32,6 +33,7 @@ const Main = () => {
       <News />
       <AboutMain />
       <Partners />
+      <Catalog2 />
       <Contacts />
       <Footer />
     </>
