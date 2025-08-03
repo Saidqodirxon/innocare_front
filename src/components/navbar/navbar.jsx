@@ -73,6 +73,7 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
+    { key: "home", url: "/" },
     { key: "about_us", url: "/about" },
     { key: "advantages", url: "/advantages" },
     { key: "partners", url: "/partners" },
@@ -208,7 +209,9 @@ const Navbar = () => {
                 </div>
               )}
             </div>
-            <UserIcon className="w-6 h-6 text-[#71914B] cursor-pointer" />
+            <Link to="/profile">
+              <UserIcon className="w-6 h-6 text-[#71914B] cursor-pointer" />
+            </Link>
           </div>
         </div>
       </div>

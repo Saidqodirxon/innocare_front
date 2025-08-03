@@ -45,7 +45,14 @@ const ProductsCatalog = () => {
     obj?.[`${field}_${currentLang}`] || obj?.[`${field}_ru`] || "";
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh", background: "#f9f9f9" }}>
+    <div
+      style={{
+        display: "flex",
+        minHeight: "300px",
+        height: "100%",
+        background: "#f9f9f9",
+      }}
+    >
       {/* Sidebar */}
       <div
         style={{

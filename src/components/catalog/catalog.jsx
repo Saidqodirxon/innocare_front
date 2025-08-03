@@ -38,7 +38,7 @@ const Catalog = () => {
   }, []);
 
   return (
-    <div className="py-12 px-4 md:px-16 bg-white" id="services">
+    <div className=" py-12 px-4 md:px-16 bg-white" id="services">
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">
         {t("products.title_1")}{" "}
         <span className="text-[#71914B]">{t("products.title_2")}</span>
@@ -107,13 +107,13 @@ const Catalog = () => {
                   <div className="flex gap-3 justify-center mt-auto">
                     <Link
                       to={`/contacts`}
-                      className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition"
+                      className="items-center flex justify-center px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition"
                     >
                       {t("Boglanish")}
                     </Link>
                     <Link
                       to={`/catalog/${item._id}`}
-                      className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition"
+                      className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition items-center flex justify-center"
                     >
                       {t("BuyurtmaBerish")}
                     </Link>

@@ -4,6 +4,10 @@ import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
 import Hero from "../../components/hero/hero";
 import Contacts from "../../components/contacts/contacts";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/autoplay";
 import "./style.scss";
 
 const TermsPage = () => {
@@ -39,14 +43,31 @@ const TermsPage = () => {
       <div className="max-w-7xl mx-auto py-20 px-4 text-center space-y-12">
         <h2 className="text-3xl font-bold">{t("terms.title")}</h2>
 
-        <div className="overflow-x-auto scrollbar-hide p-2">
-          <div className="flex space-x-6 min-w-[900px]">
-            {steps.map((step, index) => (
-              <div
-                key={index}
-                className="w-[400px] bg-white rounded-2xl shadow-md overflow-hidden flex-shrink-0 flex flex-col relative"
-              >
-                {/* Image top for step 1 & 3, bottom for 2 & 4 */}
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={24}
+          slidesPerView={1.1}
+          breakpoints={{
+            640: {
+              slidesPerView: 1.3,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          autoplay={{
+            delay: 5000,
+            disableOnInteraction: false,
+          }}
+          loop={true}
+          className="px-2"
+        >
+          {steps.map((step, index) => (
+            <SwiperSlide key={index}>
+              <div className="w-full max-w-[400px] bg-white rounded-2xl shadow-md overflow-hidden mx-auto flex flex-col h-full">
                 {(index % 2 === 0 || index === 0) && (
                   <img
                     src={step.img}
@@ -55,10 +76,7 @@ const TermsPage = () => {
                   />
                 )}
 
-                <span
-                  className="w-[60%] mt-4 flex self-center justify-center bg-[#6DA950] text-white 
-                px-4 py-1.5 rounded-md font-semibold text-sm"
-                >
+                <span className="w-[60%] mt-4 flex self-center justify-center bg-[#6DA950] text-white px-4 py-1.5 rounded-md font-semibold text-sm">
                   {index + 1} - {t("qadam")}
                 </span>
 
@@ -75,9 +93,9 @@ const TermsPage = () => {
                   />
                 )}
               </div>
-            ))}
-          </div>
-        </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
 
       <Contacts />

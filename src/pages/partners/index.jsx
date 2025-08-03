@@ -32,7 +32,7 @@ const PartnersPage = () => {
         </p>
 
         {/* Qisqa ro‘yxat */}
-        <div className="space-y-2">
+        {/* <div className="space-y-2">
           <h3 className="text-2xl font-bold mb-4">
             {t("partners.list_title", "Hamkorlar ro‘yxati:")}
           </h3>
@@ -44,7 +44,7 @@ const PartnersPage = () => {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
 
         {/* To‘liq ma’lumotlar */}
         <div className="space-y-8 pt-10">

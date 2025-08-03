@@ -1,11 +1,26 @@
+.swiper {
+  padding-bottom: 20px;
+}
+
+.swiper-slide {
+  transition: transform 0.5s ease-in-out;
+}
+
+.swiper-slide-active {
+  transform: scale(1.05);
+}
+
+.swiper-slide-next,
+.swiper-slide-prev {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
 .scrollbar-hide {
   scrollbar-width: none;
-  /* Firefox */
   -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
 }
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
-  /* Chrome, Safari, Opera */
 }

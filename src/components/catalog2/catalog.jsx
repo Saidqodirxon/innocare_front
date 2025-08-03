@@ -107,13 +107,13 @@ const Catalog2 = () => {
                   <div className="flex gap-3 justify-center mt-auto">
                     <Link
                       to={`/contacts`}
-                      className="px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition"
+                      className="items-center flex justify-center px-5 py-2 border border-[#71914B] text-[#71914B] rounded-full text-sm hover:bg-[#71914B] hover:text-white transition"
                     >
                       {t("Boglanish")}
                     </Link>
                     <Link
                       to={`/catalog/${item._id}`}
-                      className="px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition"
+                      className="items-center flex justify-center px-5 py-2 bg-[#71914B] text-white rounded-full text-sm hover:bg-[#6DA950] transition"
                     >
                       {t("BuyurtmaBerish")}
                     </Link>

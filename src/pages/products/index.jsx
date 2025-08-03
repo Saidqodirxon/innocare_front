@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/navbar/navbar";
 import Footer from "../../components/footer/footer";
@@ -14,13 +14,13 @@ const ProductsPage = () => {
   const [selectedImage, setSelectedImage] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const descriptionRef = useRef(null);
   const dropdownRef = useRef(null);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
   const { i18n, t } = useTranslation();
   const lang = i18n.language || "uz";
 
-  function convertToEmbedUrl(url) {
+  const convertToEmbedUrl = (url) => {
     if (url.includes("youtu.be/")) {
       const videoId = url.split("youtu.be/")[1].split("?")[0];
       return `https://www.youtube.com/embed/${videoId}`;
@@ -30,7 +30,15 @@ const ProductsPage = () => {
       return `https://www.youtube.com/embed/${videoId}`;
     }
     return url;
-  }
+  };
+
+  const getLangText = (field) => {
+    return product?.[`${field}_${lang}`] || product?.[`${field}_ru`] || "";
+  };
+
+  const scrollToDescription = () => {
+    descriptionRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -60,13 +68,7 @@ const ProductsPage = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  const getLangText = (field) => {
-    return product?.[`${field}_${lang}`] || product?.[`${field}_ru`] || "";
-  };
-
-  const scrollToDescription = () => {
-    descriptionRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const hasBuyLinks = !!(product?.link_1 || product?.link_2 || product?.link_3);
 
   if (loading) {
     return (
@@ -83,11 +85,7 @@ const ProductsPage = () => {
   }
 
   if (error || !product) {
-    return (
-      <>
-        <NotFound />
-      </>
-    );
+    return <NotFound />;
   }
 
   return (
@@ -95,7 +93,7 @@ const ProductsPage = () => {
       <Navbar />
       <div className="max-w-[1200px] mx-auto px-4 py-10 space-y-10">
         <div className="flex flex-col lg:flex-row gap-8">
-          {/* Image Block */}
+          {/* Image section */}
           <div className="flex gap-4 w-full lg:w-1/3">
             <div className="flex-1 p-2 border-2 border-[#7A9B55] rounded-xl flex items-center justify-center">
               <img
@@ -126,12 +124,11 @@ const ProductsPage = () => {
             </div>
           </div>
 
-          {/* Product Info */}
+          {/* Info section */}
           <div className="flex flex-col w-full lg:w-2/3 space-y-4">
             <h1 className="text-2xl font-bold text-[#2c2c2c]">
               {getLangText("name")}
             </h1>
-
             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
               {getLangText("description")}
             </p>
@@ -164,56 +161,67 @@ const ProductsPage = () => {
                 {t("Batafsil", "Batafsil")}
               </button>
 
-              <div ref={dropdownRef} className="relative">
-                <button
-                  onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium flex gap-2 items-center justify-center"
-                >
-                  {t("BuyurtmaBerish", "Sotib olish")}
-                  <span
-                    className={`transition ${dropdownOpen ? "rotate-180" : ""}`}
+              {hasBuyLinks ? (
+                <div ref={dropdownRef} className="relative">
+                  <button
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                    className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium flex gap-2 items-center justify-center"
                   >
-                    ▾
-                  </span>
-                </button>
+                    {t("BuyurtmaBerish", "Sotib olish")}
+                    <span
+                      className={`transition ${
+                        dropdownOpen ? "rotate-180" : ""
+                      }`}
+                    >
+                      ▾
+                    </span>
+                  </button>
 
-                {dropdownOpen && (
-                  <div className="absolute top-[110%] left-0 w-[180px] flex flex-col border border-[#7A9B55] rounded-xl bg-white z-20">
-                    {product?.link_1 && (
-                      <a
-                        href={product.link_1}
-                        target="_blank"
-                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
-                      >
-                        Uzum
-                      </a>
-                    )}
-                    {product?.link_2 && (
-                      <a
-                        href={product.link_2}
-                        target="_blank"
-                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
-                      >
-                        Yandex
-                      </a>
-                    )}
-                    {product?.link_3 && (
-                      <a
-                        href={product.link_3}
-                        target="_blank"
-                        className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE]"
-                      >
-                        {t("Аптека", "Apteka")}
-                      </a>
-                    )}
-                  </div>
-                )}
-              </div>
+                  {dropdownOpen && (
+                    <div className="absolute top-[110%] left-0 w-[180px] flex flex-col border border-[#7A9B55] rounded-xl bg-white z-20">
+                      {product?.link_1 && (
+                        <a
+                          href={product.link_1}
+                          target="_blank"
+                          className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
+                        >
+                          Uzum
+                        </a>
+                      )}
+                      {product?.link_2 && (
+                        <a
+                          href={product.link_2}
+                          target="_blank"
+                          className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE] border-b border-[#D9E5C2]"
+                        >
+                          Yandex
+                        </a>
+                      )}
+                      {product?.link_3 && (
+                        <a
+                          href={product.link_3}
+                          target="_blank"
+                          className="px-4 py-2 text-sm text-[#2c2c2c] hover:bg-[#F4F9EE]"
+                        >
+                          {t("Аптека", "Apteka")}
+                        </a>
+                      )}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link
+                  to="/contacts"
+                  className="w-[185px] px-6 py-2 rounded-full border border-[#7A9B55] text-[#7A9B55] hover:bg-[#F4F9EE] transition text-sm font-medium text-center"
+                >
+                  {t("Boglanish")}
+                </Link>
+              )}
             </div>
           </div>
         </div>
 
-        {/* Additional Info */}
+        {/* Additional info */}
         <div className="w-full lg:w-2/3">
           <div ref={descriptionRef} className="space-y-4 mt-8">
             <h2 className="text-2xl font-bold text-[#7bb44d]">

@@ -21,7 +21,10 @@ const News = () => {
   };
 
   const NewsCard = ({ item }) => (
-    <div className="w-full sm:w-[300px] border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white">
+    <div
+      onClick={() => navigate(`/news`)}
+      className="w-full sm:w-[300px] border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white"
+    >
       <img
         src={item.image?.url}
         alt={getLocalizedTitle(item)}
@@ -39,7 +42,7 @@ const News = () => {
         {/* Chap qism */}
         <div className="flex-1 space-y-4 text-gray-700">
           <button
-            onClick={() => navigate("/projects")}
+            onClick={() => navigate("/news")}
             className="w-fit text-sm text-[#71914B] rounded-full border border-[#71914B] px-4 py-1 hover:bg-[#72914B] hover:text-white transition"
           >
             {t("links.news")}

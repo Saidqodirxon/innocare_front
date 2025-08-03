@@ -32,21 +32,23 @@ function Hero() {
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={30}
         slidesPerView={1}
-        pagination={{ clickable: true }}
         loop
-        autoplay={{ delay: 3000, disableOnInteraction: true }}
+        autoplay={{ delay: 5000, disableOnInteraction: false }}
+        navigation
+        pagination={{
+          clickable: true,
+          el: ".hero-pagination",
+        }}
       >
         {banners.map((banner) => {
           const BannerContent = (
             <div
-              className="relative h-[80dvh] bg-cover bg-center bg-no-repeat flex items-center md:justify-start justify-center px-[6vw] "
+              className="relative h-[80dvh] bg-cover bg-center bg-no-repeat flex items-center md:justify-start justify-center px-[6vw]"
               style={{ backgroundImage: `url(${banner?.image?.url})` }}
             >
-              {/* Overlay */}
               <div className="absolute inset-0 bg-black opacity-50"></div>
 
-              {/* Kontent */}
-              <div className="relative md:text-start text-center text-white max-w-xl md:mx-[8vw] mx-[1vw]">
+              <div className="relative md:text-start text-center text-white max-w-xl md:mx-[8vw] mx-[1vw] z-10">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">
                   {currentLang === "ru"
                     ? banner.name_ru
@@ -65,13 +67,13 @@ function Hero() {
                 <div className="flex justify-center md:justify-start gap-4">
                   <a
                     href="contacts"
-                    className="inline-block bg-[#71914B] text-white hover:bg-white hover:text-[#71914B] px-3 py-2 md:px-8 md:py-3 rounded-lg transition-colors duration-300"
+                    className="inline-block bg-[#71914B] text-white hover:bg-white hover:text-[#71914B] px-4 py-2 md:px-8 md:py-3 rounded-lg transition duration-300"
                   >
                     {t("Boglanish")}
                   </a>
                   <a
                     href="contacts"
-                    className="inline-block text-[#71914B] bg-white hover:text-white hover:bg-[#71914B] px-3 py-2 md:px-8 md:py-3 rounded-lg transition-colors duration-300"
+                    className="inline-block text-[#71914B] bg-white hover:text-white hover:bg-[#71914B] px-4 py-2 md:px-8 md:py-3 rounded-lg transition duration-300"
                   >
                     {t("Qoldirish")}
                   </a>
@@ -91,6 +93,9 @@ function Hero() {
           );
         })}
       </Swiper>
+
+      {/* Pagination ko‘rsatkichi */}
+      <div className="hero-pagination !bottom-4 z-10 relative" />
     </div>
   );
 }

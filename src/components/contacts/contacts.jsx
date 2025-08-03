@@ -46,13 +46,13 @@ const Contacts = () => {
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-16">
-      <h2 className="text-2xl md:text-3xl font-semibold mb-8">
+      <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center md:text-start">
         <span className="text-[#71914B]">{t("contacts.title_1")}</span>{" "}
         {t("contacts.title_2")}
       </h2>
 
       {/* Form & Map */}
-      <div className="flex flex-col md:flex-row gap-10 mb-12 items-start">
+      <div className="flex flex-col md:flex-row gap-10 mb-12 items-center md:items-start">
         <form onSubmit={handleSubmit} className="flex-1 space-y-4">
           <div className="flex flex-col sm:flex-row gap-4">
             <input
