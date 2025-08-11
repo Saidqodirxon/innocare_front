@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import "./style.scss";
 
 const ProductsCatalog = () => {
   const [products, setProducts] = useState([]);
@@ -52,6 +53,7 @@ const ProductsCatalog = () => {
         height: "100%",
         background: "#f9f9f9",
       }}
+      className="product-layout"
     >
       {/* Sidebar */}
       <div
@@ -160,8 +162,7 @@ const ProductsCatalog = () => {
                 src={product.image?.[0]?.url}
                 alt={getLocalized(product, "name")}
                 style={{
-                  maxHeight: "400px",
-                  maxWidth: "100%",
+                  height: "400px",
                   objectFit: "contain",
                 }}
               />

@@ -144,6 +144,7 @@ i18n.use(initReactI18next).init({
             contacts: "Aloqa",
             catalog: "Katalog",
             news: "Yangiliklar",
+            work_time: "Ish vaqti: Dushanba - Shanba, 9:00 - 18:00",
           },
           legal: "Barcha mahsulotlar ro‘yxatdan o‘tgan, xizmatlar litsenziyalangan.",
           call_us: "Bizga qo‘ng‘iroq qiling",
@@ -363,6 +364,7 @@ i18n.use(initReactI18next).init({
             contacts: "Contact",
             catalog: "Catalog",
             news: "News",
+            work_time: "Work Time: Mon-Sat 9:00-18:00"
           },
           legal: "All products are registered, services are licensed.",
           call_us: "Call us",
@@ -589,6 +591,7 @@ i18n.use(initReactI18next).init({
             contacts: "Контакты",
             catalog: "Каталог",
             news: "Новости",
+            work_time: "Время работы: Пн-Суб 9:00-18:00"
           },
           legal: "Вся продукция зарегистрирована, услуги лицензированы.",
           call_us: "Позвоните нам",

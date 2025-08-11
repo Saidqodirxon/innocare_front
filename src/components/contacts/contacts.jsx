@@ -109,7 +109,7 @@ const Contacts = () => {
       {/* Info Boxes */}
       <div className="flex flex-wrap gap-4 text-sm text-gray-700">
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
-          <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm text-[#000] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <MapPin className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.address_label")}
           </p>
@@ -119,7 +119,7 @@ const Contacts = () => {
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
-          <p className="flex items-center gap-2 text-sm text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm text-[#000] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Mail className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.email_label")}
           </p>
@@ -129,7 +129,7 @@ const Contacts = () => {
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-3">
-          <p className="flex items-center gap-2 text-sm  text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm  text-[#000] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Globe className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.socials_label")}
           </p>
@@ -142,7 +142,7 @@ const Contacts = () => {
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
-          <p className="flex items-center gap-2 text-sm  text-[#71914B] font-medium bg-white px-2 py-1 rounded-full w-fit">
+          <p className="flex items-center gap-2 text-sm  text-[#000] font-medium bg-white px-2 py-1 rounded-full w-fit">
             <Phone className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.phone_label")}
           </p>

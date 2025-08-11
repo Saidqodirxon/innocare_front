@@ -23,7 +23,7 @@ const News = () => {
   const NewsCard = ({ item }) => (
     <div
       onClick={() => navigate(`/news`)}
-      className="w-full sm:w-[300px] border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white"
+      className="w-full sm:w-[300px] border border-[#71914B] rounded-xl overflow-hidden shadow-sm hover:shadow-md transition bg-white"
     >
       <img
         src={item.image?.url}

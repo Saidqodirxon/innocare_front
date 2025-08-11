@@ -28,7 +28,7 @@ const Partners = () => {
         <span className="text-sm text-[#71914B] border border-[#71914B] rounded-full px-4 py-1">
           {t("links.partners")}
         </span>
-        <h3 className="text-xl md:text-2xl font-medium text-gray-800">
+        <h3 className="text-xl md:text-2xl font-bold text-gray-800">
           {t("partners.title_1")}
         </h3>
       </div>

@@ -38,13 +38,13 @@ const Catalog = () => {
   }, []);
 
   return (
-    <div className=" py-12 px-4 md:px-16 bg-white" id="services">
+    <div className=" py-12 px-4 md:px-16 bg-white " id="services">
       <h2 className="text-2xl md:text-3xl font-semibold text-center mb-10">
         {t("products.title_1")}{" "}
         <span className="text-[#71914B]">{t("products.title_2")}</span>
       </h2>
 
-      <div className="relative">
+      <div className="relative max-w-[1450px] mx-auto">
         <div
           ref={prevRef}
           className="absolute z-10 left-[-20px] top-[40%] hover:bg-[#71914B] hover:text-white bg-gray-200 p-2 rounded-full cursor-pointer"
@@ -89,6 +89,7 @@ const Catalog = () => {
                 slidesPerView: 3,
               },
             }}
+            className="!pb-16"
           >
             {products.map((item, i) => (
               <SwiperSlide key={i}>

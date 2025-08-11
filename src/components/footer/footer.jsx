@@ -70,9 +70,10 @@ const Footer = () => {
         {/* Contact info */}
         <div className="flex flex-col gap-2">
           {/* <div>
-            <p className="text-base">{t("footer.about.title")}</p>
             <p className="text-sm">{t("footer.about.schedule")}</p>
-          </div> */}
+            </div> */}
+          <p className="text-base">{t("links.about_us")}</p>
+          <p className="text-sm">{t("footer.links.work_time")}</p>
           <p className="text-sm">{t("footer.legal")}</p>
           <button className="mt-2 flex items-center gap-2 text-[#71914B] bg-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition w-fit">
             <span className="flex items-center bg-[#71914B] text-white rounded-full p-2">
