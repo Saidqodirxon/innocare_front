@@ -54,7 +54,7 @@ const News = () => {
 
           <button
             onClick={() => navigate("/news")}
-            className="w-fit text-white px-6 py-2 rounded-full bg-[#71914B] hover:bg-[#72914bb0] transition"
+            className="w-fit text-white px-6 py-2 rounded-full bg-[#71914B] hover:bg-[#72914bb0] transition md:flex hidden"
           >
             {t("news.title_2")}
           </button>
@@ -96,6 +96,13 @@ const News = () => {
             </div>
           )}
         </div>
+
+        <button
+          onClick={() => navigate("/news")}
+          className="w-fit text-white px-6 py-2 rounded-full bg-[#71914B] hover:bg-[#72914bb0] transition flex md:hidden"
+        >
+          {t("news.title_2")}
+        </button>
       </div>
     </div>
   );
