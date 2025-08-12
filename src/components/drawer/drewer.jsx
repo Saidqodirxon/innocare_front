@@ -75,7 +75,9 @@ export default function TemporaryDrawer() {
           </button>
 
           <div className="flex flex-col items-center mt-6">
-            <img src={logo} alt="Logo" className="w-[150px] mb-6" />
+            <Link className="brand text-xl font-bold text-[#71914B]" to="/">
+              Innocare
+            </Link>
 
             <nav className="flex flex-col gap-4 w-full text-left">
               <div>

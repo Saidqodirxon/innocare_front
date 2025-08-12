@@ -40,29 +40,34 @@ const TermsPage = () => {
     <>
       <Navbar />
       <Hero />
-      <div className="max-w-7xl mx-auto py-20 px-4 text-center space-y-12">
+
+      {/* RESET: agar global .swiper-slide ga opacity/transform berilgan bo‘lsa, shu yerda bekor qiladi */}
+      <style>{`
+        .terms-swiper .swiper-slide,
+        .terms-swiper .swiper-slide-prev,
+        .terms-swiper .swiper-slide-next,
+        .terms-swiper .swiper-slide-active {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      `}</style>
+
+      <div className="max-w-7xl mx-auto py-20 px-4 text-center space-y-12 terms-swiper">
         <h2 className="text-3xl font-bold">{t("terms.title")}</h2>
 
         <Swiper
           modules={[Autoplay]}
+          effect="slide"
           spaceBetween={24}
           slidesPerView={1.1}
           breakpoints={{
-            640: {
-              slidesPerView: 1.3,
-            },
-            768: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
+            640: { slidesPerView: 1.3 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
           }}
-          autoplay={{
-            delay: 5000,
-            disableOnInteraction: false,
-          }}
+          autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop={true}
+          watchOverflow={true}
           className="px-2"
         >
           {steps.map((step, index) => (
@@ -71,8 +76,9 @@ const TermsPage = () => {
                 {(index % 2 === 0 || index === 0) && (
                   <img
                     src={step.img}
-                    alt={`Step ${index + 1}`}
+                    alt={`${index + 1}-qadam — ${step.title}`}
                     className="w-full h-60 object-cover rounded-t-2xl"
+                    loading="lazy"
                   />
                 )}
 
@@ -88,8 +94,9 @@ const TermsPage = () => {
                 {index % 2 !== 0 && index !== 0 && (
                   <img
                     src={step.img}
-                    alt={`Step ${index + 1}`}
+                    alt={`${index + 1}-qadam — ${step.title}`}
                     className="w-full h-60 object-cover"
+                    loading="lazy"
                   />
                 )}
               </div>

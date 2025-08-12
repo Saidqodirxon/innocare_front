@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-
 import "swiper/css";
 
 const Partners = () => {
@@ -11,19 +10,40 @@ const Partners = () => {
   const [partners, setPartners] = useState([]);
 
   useEffect(() => {
+    let isMounted = true;
     axios
       .get("https://back.innocare.uz/partners")
-      .then((res) => setPartners(res.data.data || []))
+      .then(({ data }) => {
+        if (!isMounted) return;
+        setPartners(data?.data || []);
+      })
       .catch((err) => console.error("Partners error:", err));
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const getName = (item) => {
     const lang = i18n.language;
-    return item[`name_${lang}`] || item.name_uz;
+    // mos kalit topilmasa uz -> ru -> en tartibida fallback
+    return (
+      item[`name_${lang}`] || item.name_uz || item.name_ru || item.name_en || ""
+    );
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="max-w-7xl mx-auto px-4 py-16 partners-swiper">
+      {/* RESET: agar global .swiper-slide ga opacity/transform berilgan bo‘lsa, o‘chiradi */}
+      <style>{`
+        .partners-swiper .swiper-slide,
+        .partners-swiper .swiper-slide-prev,
+        .partners-swiper .swiper-slide-next,
+        .partners-swiper .swiper-slide-active {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      `}</style>
+
       <div className="text-start space-y-4 mb-10">
         <span className="text-sm text-[#71914B] border border-[#71914B] rounded-full px-4 py-1">
           {t("links.partners")}
@@ -38,6 +58,7 @@ const Partners = () => {
         spaceBetween={20}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         loop={true}
+        watchOverflow={true}
         breakpoints={{
           320: { slidesPerView: 1 },
           480: { slidesPerView: 2 },
@@ -46,12 +67,13 @@ const Partners = () => {
         }}
       >
         {partners.map((item) => (
-          <SwiperSlide key={item._id}>
+          <SwiperSlide key={item._id || item.id}>
             <div className="border border-[#71914B] rounded-xl p-4 h-[200px] flex flex-col items-center justify-center shadow-sm hover:shadow-md transition">
               <img
                 src={item.image?.url}
                 alt={getName(item)}
                 className="h-[130px] object-contain mb-2"
+                loading="lazy"
               />
               <span className="text-sm text-gray-700 text-center">
                 {getName(item)}

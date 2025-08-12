@@ -94,7 +94,10 @@ const Navbar = () => {
       >
         <Box sx={{ width: 280, p: 2 }}>
           <div className="flex justify-between items-center mb-6">
-            <img src={logo} alt="logo" className="w-[120px]" />
+            {/* <img src={logo} alt="logo" className="w-[120px]" /> */}
+            <Link className="brand text-xl font-bold text-[#71914B]" to="/">
+              Innocare
+            </Link>
             <button onClick={() => setDrawerOpen(false)}>
               <img src={xIcon} alt="close" className="w-6 h-6" />
             </button>
