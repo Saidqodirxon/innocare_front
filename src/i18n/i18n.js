@@ -176,7 +176,7 @@ i18n.use(initReactI18next).init({
           privacy: "Ma’lumotlaringiz maxfiy saqlanadi.",
         },
         terms: {
-          title: "Hamkorlik shartlari",
+          title: "Bizning shartlarimiz",
           flex_delivery_title: "Profil mosligini aniqlang",
           flex_delivery_desc: "Biz klinikalar, dorixonalar, distribyutorlar va tibbiyot, dermatologiya hamda kosmetologiya mutaxassislari bilan hamkorlik qilamiz, yuqori sifatli sinovdan o‘tgan yechimlarni taklif qilamiz.",
           support_title: "Bizning qadriyatlarimizni tushuning",
@@ -402,7 +402,7 @@ i18n.use(initReactI18next).init({
         },
 
         terms: {
-          title: "Cooperation Terms",
+          title: "Our terms and conditions",
           flex_delivery_title: "Determine profile fit",
           flex_delivery_desc: "We cooperate with clinics, pharmacies, distributors, and specialists in medicine, dermatology, and cosmetology, offering high-quality tested solutions.",
           support_title: "Understand our values",
@@ -633,7 +633,7 @@ i18n.use(initReactI18next).init({
         },
 
         terms: {
-          title: "Условия сотрудничества",
+          title: "Наши положения и условия",
           flex_delivery_title: "Определите соответствие профиля",
           flex_delivery_desc: "Мы сотрудничаем с клиниками, аптеками, дистрибьюторами и специалистами в медицине, дерматологии и косметологии, предлагая проверенные высококачественные решения.",
           support_title: "Поймите наши ценности",
