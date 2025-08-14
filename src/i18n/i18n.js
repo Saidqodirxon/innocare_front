@@ -108,11 +108,11 @@ i18n.use(initReactI18next).init({
             supportDesc: "Barcha hamkorlar uchun bepul maslahatlar va texnik yordam.",
             qualityTitle: "Sifat kafolati:",
             qualityDesc: "Ishlab chiqarishdagi nuqsonlar aniqlansa, 30 kun ichida tovarni qaytarish yoki almashtirish.",
-            discountTitle: "Chegirmalar va bonuslar:",
-            discountDesc: "Doimiy mijozlar uchun maxsus chegirmalar va yirik buyurtmalar uchun bonuslar."
+            // discountTitle: "Chegirmalar va bonuslar:",
+            // discountDesc: "Doimiy mijozlar uchun maxsus chegirmalar va yirik buyurtmalar uchun bonuslar."
           },
           innocare: {
-            title: "INNOCARE bilan ishlash shartlari",
+            title: "INNOCARE bilan hamkorlikning afzalliklari",
             trainingTitle: "Xodimlarni o‘qitish:",
             trainingDesc: "Hamkorlar xodimlari uchun mahsulot va texnologiyalar bo‘yicha bepul treninglar va seminarlar.",
             programTitle: "Hamkorlik dasturi:",
@@ -177,15 +177,20 @@ i18n.use(initReactI18next).init({
         },
         terms: {
           title: "Hamkorlik shartlari",
-          flex_delivery_title: "Moslashuvchan yetkazib berish shartlari",
-          flex_delivery_desc: "Mijoz ehtiyojlariga mos ravishda individual muddat va hajmlar.",
-          support_title: "Maslahat va qo‘llab-quvvatlash",
-          support_desc: "Barcha hamkorlar uchun bepul maslahatlar va texnik yordam.",
-          quality_title: "Sifat kafolati",
-          quality_desc: "Ishlab chiqarishdagi nuqsonlar aniqlansa, 30 kun ichida tovarni qaytarish yoki almashtirish.",
-          discounts_title: "Chegirmalar va bonuslar",
-          discounts_desc: "Doimiy mijozlar uchun maxsus chegirmalar va yirik buyurtmalar uchun bonuslar."
+          flex_delivery_title: "Profil mosligini aniqlang",
+          flex_delivery_desc: "Biz klinikalar, dorixonalar, distribyutorlar va tibbiyot, dermatologiya hamda kosmetologiya mutaxassislari bilan hamkorlik qilamiz, yuqori sifatli sinovdan o‘tgan yechimlarni taklif qilamiz.",
+          support_title: "Bizning qadriyatlarimizni tushuning",
+          support_desc: "Bizning munosabatlarimiz professionallik, mahsulotlarning barqaror sifati va to‘liq shaffoflikka asoslangan.",
+          quality_title: "Rasmiy yetkazib beruvchilarga ishonch bildiring.",
+          quality_desc: "Biz faqat ishonchli ishlab chiqaruvchilar bilan ishlaymiz, mahsulotlar identifikatsiyadan o‘tadi, sertifikatlanadi va O‘zbekiston qonunchiligi talablariga javob beradi.",
+          discounts_title: "Marketing qo‘llab-quvvatlashdan foydalaning.",
+          discounts_desc: "Biz reklama materiallari, o‘quv treninglari, ilmiy nashrlar va metodik tavsiyalarni taqdim etamiz.",
+          logistic_title: "Logistikamizni baholang",
+          logistic_desc: "Biz o‘z vaqtida yetkazib berishni, xavfsiz transportni va yetkazib berishning barcha bosqichlarida shaffoflikni ta’minlaymiz.",
+          partners_title: "Hamkorlikka birinchi qadamni qo‘ying",
+          partners_desc: "Saytdagi shaklni to‘ldiring yoki menejer bilan bog‘laning. Ish tartibini muhokama qilamiz, shartnoma imzolaymiz va talablar bajarilganda yetkazib berishni boshlaymiz: litsenziya mavjudligi (agar kerak bo‘lsa), to‘g‘ri saqlash va uzoq muddatli hamkorlikka tayyorlik."
         },
+
         qadam: "qadam",
         categories: "Kategoriya",
         Tozalash: "Tozalash",
@@ -328,11 +333,11 @@ i18n.use(initReactI18next).init({
             supportDesc: "Free consultations and technical support for all partners.",
             qualityTitle: "Quality guarantee:",
             qualityDesc: "If manufacturing defects are found, return or exchange within 30 days.",
-            discountTitle: "Discounts and bonuses:",
-            discountDesc: "Special discounts for regular clients and bonuses for large orders."
+            // discountTitle: "Discounts and bonuses:",
+            // discountDesc: "Special discounts for regular clients and bonuses for large orders."
           },
           innocare: {
-            title: "Terms of working with INNOCARE",
+            title: "Benefits of cooperation with INNOCARE",
             trainingTitle: "Staff training:",
             trainingDesc: "Free training and seminars on products and technologies for partner staff.",
             programTitle: "Partnership program:",
@@ -397,15 +402,19 @@ i18n.use(initReactI18next).init({
         },
 
         terms: {
-          title: "Cooperation terms",
-          flex_delivery_title: "Flexible delivery terms",
-          flex_delivery_desc: "Individual deadlines and volumes based on client needs.",
-          support_title: "Consultation and support",
-          support_desc: "Free consultations and technical support for all partners.",
-          quality_title: "Quality guarantee",
-          quality_desc: "If manufacturing defects are found, return or exchange within 30 days.",
-          discounts_title: "Discounts and bonuses",
-          discounts_desc: "Special discounts for regular customers and bonuses for large orders."
+          title: "Cooperation Terms",
+          flex_delivery_title: "Determine profile fit",
+          flex_delivery_desc: "We cooperate with clinics, pharmacies, distributors, and specialists in medicine, dermatology, and cosmetology, offering high-quality tested solutions.",
+          support_title: "Understand our values",
+          support_desc: "Our relationships are based on professionalism, consistent product quality, and complete transparency.",
+          quality_title: "Trust official suppliers",
+          quality_desc: "We work only with trusted manufacturers; products undergo identification, certification, and comply with Uzbekistan’s legislation.",
+          discounts_title: "Use marketing support",
+          discounts_desc: "We provide promotional materials, training sessions, scientific publications, and methodological recommendations.",
+          logistic_title: "Assess our logistics",
+          logistic_desc: "We ensure on-time delivery, safe transportation, and transparency at all stages of the supply process.",
+          partners_title: "Take the first step toward cooperation",
+          partners_desc: "Fill out the form on the website or contact the manager. We will discuss the work format, sign a contract, and start deliveries when requirements are met: license availability (if necessary), proper storage, and readiness for long-term partnership."
         },
 
         qadam: "step",
@@ -555,11 +564,11 @@ i18n.use(initReactI18next).init({
             supportDesc: "Бесплатные консультации и техническая поддержка для всех партнеров.",
             qualityTitle: "Гарантия качества:",
             qualityDesc: "При выявлении дефектов производства возврат или обмен товара в течение 30 дней.",
-            discountTitle: "Скидки и бонусы:",
-            discountDesc: "Специальные скидки для постоянных клиентов и бонусы за крупные заказы."
+            // discountTitle: "Скидки и бонусы:",
+            // discountDesc: "Специальные скидки для постоянных клиентов и бонусы за крупные заказы."
           },
           innocare: {
-            title: "Условия работы с INNOCARE",
+            title: "Преимущества сотрудничества с INNOCARE",
             trainingTitle: "Обучение персонала:",
             trainingDesc: "Бесплатные тренинги и семинары по продукции и технологиям для сотрудников партнеров.",
             programTitle: "Партнерская программа:",
@@ -625,16 +634,19 @@ i18n.use(initReactI18next).init({
 
         terms: {
           title: "Условия сотрудничества",
-          flex_delivery_title: "Гибкие условия поставки",
-          flex_delivery_desc: "Индивидуальные сроки и объемы в зависимости от потребностей клиента.",
-          support_title: "Консультации и поддержка",
-          support_desc: "Бесплатные консультации и техническая поддержка для всех партнеров.",
-          quality_title: "Гарантия качества",
-          quality_desc: "При выявлении дефектов возврат или обмен в течение 30 дней.",
-          discounts_title: "Скидки и бонусы",
-          discounts_desc: "Скидки для постоянных клиентов и бонусы за крупные заказы."
+          flex_delivery_title: "Определите соответствие профиля",
+          flex_delivery_desc: "Мы сотрудничаем с клиниками, аптеками, дистрибьюторами и специалистами в медицине, дерматологии и косметологии, предлагая проверенные высококачественные решения.",
+          support_title: "Поймите наши ценности",
+          support_desc: "Наши отношения строятся на профессионализме, стабильном качестве продукции и полной прозрачности.",
+          quality_title: "Доверьтесь официальным поставщикам",
+          quality_desc: "Мы работаем только с проверенными производителями; продукция проходит идентификацию, сертификацию и соответствует законодательству Узбекистана.",
+          discounts_title: "Используйте маркетинговую поддержку",
+          discounts_desc: "Мы предоставляем рекламные материалы, обучающие тренинги, научные публикации и методические рекомендации.",
+          logistic_title: "Оцените нашу логистику",
+          logistic_desc: "Мы обеспечиваем своевременную доставку, безопасную транспортировку и прозрачность на всех этапах поставки.",
+          partners_title: "Сделайте первый шаг к сотрудничеству",
+          partners_desc: "Заполните форму на сайте или свяжитесь с менеджером. Мы обсудим формат работы, подпишем договор и начнем поставки при соблюдении требований: наличие лицензии (если требуется), правильное хранение и готовность к долгосрочному партнёрству."
         },
-
         qadam: "шаг",
         categories: "Категория",
         Tozalash: "Очистить",

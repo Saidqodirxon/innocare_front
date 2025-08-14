@@ -168,8 +168,8 @@ const Navbar = () => {
             <a href="tel:+998970322332" className="text-sm">
               +998 97 032 23 32
             </a>
-            <a href="mailto:supersite.uz@gmail.com" className="text-sm">
-              supersite.uz@gmail.com
+            <a href="mailto:Info@innocare.uz" className="text-sm">
+              Info@innocare.uz
             </a>
           </div>
 

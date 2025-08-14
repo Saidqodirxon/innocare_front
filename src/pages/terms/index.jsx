@@ -34,6 +34,17 @@ const TermsPage = () => {
       title: t("terms.discounts_title"),
       desc: t("terms.discounts_desc"),
     },
+
+    {
+      img: "/about/img1.png",
+      title: t("terms.logistic_title"),
+      desc: t("terms.logistic_desc"),
+    },
+    {
+      img: "/about/img2.png",
+      title: t("terms.partners_title"),
+      desc: t("terms.partners_desc"),
+    },
   ];
 
   return (
@@ -72,7 +83,7 @@ const TermsPage = () => {
         >
           {steps.map((step, index) => (
             <SwiperSlide key={index}>
-              <div className="w-full max-w-[400px] bg-white rounded-2xl shadow-md overflow-hidden mx-auto flex flex-col h-full">
+              <div className="w-full max-w-[400px] h-[500px] bg-white rounded-2xl shadow-md overflow-hidden mx-auto flex flex-col">
                 {(index % 2 === 0 || index === 0) && (
                   <img
                     src={step.img}

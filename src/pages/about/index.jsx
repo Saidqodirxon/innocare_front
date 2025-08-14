@@ -24,7 +24,7 @@ const AboutPage = () => {
         ["abouts.cooperation.termTitle", "abouts.cooperation.termDesc"],
         ["abouts.cooperation.supportTitle", "abouts.cooperation.supportDesc"],
         ["abouts.cooperation.qualityTitle", "abouts.cooperation.qualityDesc"],
-        ["abouts.cooperation.discountTitle", "abouts.cooperation.discountDesc"],
+        // ["abouts.cooperation.discountTitle", "abouts.cooperation.discountDesc"],
       ],
     },
     {
@@ -42,7 +42,7 @@ const AboutPage = () => {
         ["abouts.purchase.paymentTitle", "abouts.purchase.paymentDesc"],
         ["abouts.purchase.deliveryTitle", "abouts.purchase.deliveryDesc"],
         ["abouts.purchase.guaranteeTitle", "abouts.purchase.guaranteeDesc"],
-        ["abouts.purchase.samplesTitle", "abouts.purchase.samplesDesc"],
+        // ["abouts.purchase.samplesTitle", "abouts.purchase.samplesDesc"],
       ],
     },
   ];

@@ -29,22 +29,22 @@ const Footer = () => {
         <div>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/partners" className="hover:underline">
                 {t("footer.links.partners")}
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/advantages" className="hover:underline">
                 {t("footer.links.advantages")}
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/terms" className="hover:underline">
                 {t("footer.links.terms")}
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/contacts" className="hover:underline">
                 {t("footer.links.contacts")}
               </a>
             </li>
@@ -55,12 +55,12 @@ const Footer = () => {
         <div>
           <ul className="space-y-2">
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/catalog" className="hover:underline">
                 {t("footer.links.catalog")}
               </a>
             </li>
             <li>
-              <a href="#" className="hover:underline">
+              <a href="/news" className="hover:underline">
                 {t("footer.links.news")}
               </a>
             </li>
@@ -75,12 +75,15 @@ const Footer = () => {
           <p className="text-base">{t("links.about_us")}</p>
           <p className="text-sm">{t("footer.links.work_time")}</p>
           <p className="text-sm">{t("footer.legal")}</p>
-          <button className="mt-2 flex items-center gap-2 text-[#71914B] bg-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition w-fit">
+          <a
+            href="tel:+998970322332"
+            className="mt-2 flex items-center gap-2 text-[#71914B] bg-white px-3 py-1 rounded-full text-sm font-medium hover:bg-gray-100 transition w-fit"
+          >
             <span className="flex items-center bg-[#71914B] text-white rounded-full p-2">
               <PhoneCall size={12} />
             </span>
             {t("footer.call_us")}
-          </button>
+          </a>
         </div>
       </div>
 

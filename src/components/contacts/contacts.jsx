@@ -113,9 +113,12 @@ const Contacts = () => {
             <MapPin className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.address_label")}
           </p>
-          <p className="text-[13px] text-[#71914B] font-semibold">
+          <a
+            href="https://yandex.uz/maps/10335/tashkent/?from=mapframe&ll=69.201076%2C41.339547&pt=69.200379%2C41.339806&source=mapframe&z=15"
+            className="text-[13px] text-[#71914B] font-semibold"
+          >
             {t("contacts.address")}
-          </p>
+          </a>
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-2">
@@ -123,9 +126,12 @@ const Contacts = () => {
             <Mail className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.email_label")}
           </p>
-          <p className="text-[13px] text-[#71914B] font-semibold">
-            Supersite.uz@gmail.com
-          </p>
+          <a
+            href="mailto:Info@innocare.uz"
+            className="text-[13px] text-[#71914B] font-semibold"
+          >
+            Info@innocare.uz
+          </a>
         </div>
 
         <div className="flex-1 min-w-[180px] rounded-xl bg-[#F8F8F8] p-4 space-y-3">
@@ -134,10 +140,18 @@ const Contacts = () => {
             {t("contacts.socials_label")}
           </p>
           <div className="flex gap-3 text-[#71914B] text-xl">
-            <FaTelegramPlane />
-            <Instagram />
-            <Youtube />
-            <Facebook />
+            <a href="#">
+              <FaTelegramPlane />
+            </a>
+            <a href="#">
+              <Instagram />
+            </a>
+            <a href="#">
+              <Youtube />
+            </a>
+            <a href="#">
+              <Facebook />
+            </a>
           </div>
         </div>
 
@@ -146,9 +160,12 @@ const Contacts = () => {
             <Phone className="w-5 h-5 text-[#fff] bg-[#71914B] rounded-full p-1" />
             {t("contacts.phone_label")}
           </p>
-          <p className="text-[13px] text-[#71914B] font-semibold">
+          <a
+            href="tel:+998970322332"
+            className="text-[13px] text-[#71914B] font-semibold"
+          >
             +998 (97) 032-23-32
-          </p>
+          </a>
         </div>
       </div>
 
