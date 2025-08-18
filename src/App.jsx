@@ -24,14 +24,14 @@ function App() {
 
   useEffect(() => {
     setIsLoading(true);
-    const timer = setTimeout(() => setIsLoading(false), 1000);
+    const timer = setTimeout(() => setIsLoading(false), 100);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     setIsLoading(true);
     window.scrollTo(0, 0);
-    const timer = setTimeout(() => setIsLoading(false), 500);
+    const timer = setTimeout(() => setIsLoading(false), 50);
     return () => clearTimeout(timer);
   }, [location.pathname]);
 
